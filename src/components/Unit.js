@@ -2,10 +2,10 @@
 
 function Unit(){
     return (
-        <div className="item-container">
+        <div className="card-container">
         <div className="product-item">
             <div className="image-field">
-            <a href="#" > <img src="https://krepcom.ru/upload/iblock/916/din_934-aluminium.jpg" alt="image"/></a>
+            <a href="#" ><img className="card-img" src="https://krepcom.ru/upload/iblock/916/din_934-aluminium.jpg" alt="image"/></a>
             <div className="cart-status">
            <div className="status-ok">
             <h6>3</h6>
