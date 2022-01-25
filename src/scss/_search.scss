@@ -1,0 +1,17 @@
+
+.search-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 390px);
+}
+.search-container input{
+    border: 1px solid #bcb8b8;
+    height: 40px;
+    padding: 8px 10px;
+    font-size: 18px;
+    padding-right: 100px;
+}
+
+
+

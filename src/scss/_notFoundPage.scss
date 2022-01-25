@@ -1,0 +1,31 @@
+.not-found-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 390px);
+}
+
+.not-found-container h1 {
+    margin: 10px auto;
+    font-size: 70px;
+    color: #f76b6a;
+}
+.not-found-container h4 {
+    margin: 10px auto;
+}
+.not-found-container a {
+    margin: 10px auto;
+    color: #212121;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 18px; 
+  border-radius: 4px;
+  transition: .2s ease-in;
+  background: #cac7c7;
+  border: 1px solid #F5F5F5;
+}
+.not-found-container a:hover {
+    background-color: #f76b6a;
+    color: white;
+}
