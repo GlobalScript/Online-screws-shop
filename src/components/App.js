@@ -15,11 +15,11 @@ function App() {
     <div className="wrapper">
      <Header />
      <ProductHeader />
-     {/* <NotFoundPage /> */}
-     {/* <Search /> */}
+     <NotFoundPage />
+     <Search />
      <UnitContainer />
-     {/* <CartContainer /> */}
-     {/* <SingleProduct /> */}
+     <CartContainer />
+     <SingleProduct />
      <Footer />
     </div>
   );

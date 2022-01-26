@@ -1,9 +1,9 @@
 .banner-field {
     height: 120px;
-    background-color: #f0f1f1;
+    background-color: $backgroundColor;
 }
 .banner-field p {
-    color: rgb(246, 96, 76);
+    color: $thematColor;
     text-align: center;
     line-height: 170px;
 }

@@ -4,59 +4,53 @@
 }
 .cart-table  {
     margin: 20px auto;
-    border: 1px solid #ccc;
+    border: $borderColor;
     border-spacing: 3px;
     border-collapse: collapse;
     text-align: center;
     width: 90%;
 }
 .cart-table td, .cart-table th{
-    border: solid 1px #ccc;
+    border: $borderColor;
 }
 .cart-table td {
     height: 120px;
 }
 .cart-table button{
   color: #212121;
-  padding: 5px;
+  padding: 7px;
   margin: 5px;
   text-decoration: none;
   font-size: 15px; 
   border-radius: 4px;
-  transition: .2s ease-in;
-  background: #faf6f6;
-  border: 1px solid #F5F5F5;
-}
-.cart-table button:hover {
-    background-color: #f76b6a;
+  transition: $allTransition;
+  background: $backgroundColor;
+  border: none;
+  cursor: pointer;
+&:hover {
+    background-color: $thematColor;
     color: white;
+}
 }
 .product-img img {
     width: 100px;
 }
-.product-name a, .checkout-page a {
-    color: #212121;
-  padding: 12px;
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 18px; 
-  border-radius: 4px;
-  transition: .1s ease-in;
+.product-name a {
+    @include styleAnchor(12px);
+&:hover {
+    @include hoverAnchor;
 }
-.product-name a:hover, .checkout-page a:hover {
-    color:#f76b6a;
-    box-shadow: 0 1px 0 #f76b6a;
 }
 .quantity-field input {
     font-size: 16px;
-    border: 1px solid #bcb8b8;
+    border: $borderColor;
     border-radius: 4px;
     width: 80px;
     height: 30px;
 }
 .cart-table .head-team {
     height: 40px;
-    background-color: #f0f1f1;
+    background-color: $backgroundColor;
 }
 .cart-table .head-team th {
     font-weight: normal;
@@ -69,8 +63,8 @@
     padding: 15px;
     height: 40px;
     width: 365px;
-    border: 1px solid #ccc;
-    background-color: #f0f1f1;
+    border: $borderColor;
+    background-color: $backgroundColor;
     border-radius: 4px;
 }
 .product-total {
@@ -90,5 +84,10 @@
     margin-bottom: 100px;
 }
 .checkout-page a {
-    box-shadow: 0 1px 0 #f76b6a;
+    @include styleAnchor(12px);
+    box-shadow: 0 1px 0 $thematColor;
+&:hover {
+    @include hoverAnchor;
+    }
 }
+

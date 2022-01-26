@@ -1,7 +1,7 @@
 
 
 function CartContainer(){
-    const arr = [1];
+    const arr = [1,9,10];
     return (
         <div className="cart-wrapper">
             <div className="banner-field"></div>
@@ -18,7 +18,7 @@ function CartContainer(){
                   </thead>
                   <tbody>
                       {arr.map(item => (
-                    <tr>
+                    <tr key={item}>
                       <td>
                       <button><i className='icon-cancel'></i></button>
                       </td>

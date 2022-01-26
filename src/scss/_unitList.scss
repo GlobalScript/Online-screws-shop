@@ -4,7 +4,7 @@
     margin-bottom: 10px;
   }
   .unit-list-img {
-      border: 1px solid #c1c3c3;
+      border: $borderColor;
       margin:10px 50px;
      height: 200px;
      width: 200px;
@@ -39,19 +39,12 @@
    
  }
   .unit-list-cart-bar a, .unit-list-cart-bar button {
-      color: #212121;
-      padding: 10px;
-      /* margin: 10px; */
-      text-decoration: none;
-      font-size: 15px; 
-      border-radius: 4px;
-      transition: .2s ease-in;
-      background: #e2dddd;
-      border: 1px solid #F5F5F5;
+      @include styleButton(15px);
+      margin-right: 5px;
+      box-shadow: 5px 5px 5px rgb(149, 148, 148);
     }
     .unit-list-cart-bar a:hover, .unit-list-cart-bar button:hover{
-      background-color: #f76b6a;
-      color: white;
+     @include hoverButton;
     }
     .unit-list-img {
       position: relative;

@@ -45,12 +45,13 @@
 .arrow {
     margin: 5px;
     cursor: pointer;
-}
-.arrow:hover {
-    background-color: #f76b6a;
-    color: white;
-    border-radius: 4px;
-    transition: .1s ease-in;
+    transition: $allTransition; 
+&:hover {
+        background-color: $thematColor;
+        color: white;
+        border-radius: 4px;
+        transition: $allTransition; 
+    }    
 }
 .item img {
     object-fit: contain;

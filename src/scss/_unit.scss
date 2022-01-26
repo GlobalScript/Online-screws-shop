@@ -9,15 +9,18 @@
   width: 200px;
   height: 300px;
   border-radius: 4px;
-  border: 1px solid #c1c3c3;
+  border:$borderColor;
   margin: 10px;
   overflow: hidden;
+  &:hover {
+    @include hoverAnchor;
+  }
 }
 .product-item {
   text-align: center;
   margin: 0 auto;
   background: white;
-  transition: .1s ease-in;
+  transition: $allTransition;
 }
 .image-field {
   width: 200px;
@@ -41,18 +44,12 @@
 	left: 0px;
 }
 .cart-bar a, .cart-bar button {
-  color: #212121;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 15px; 
-  border-radius: 4px;
-  transition: .2s ease-in;
-  background: #faf6f6;
-  border: 1px solid #faf6f6;
+  @include styleButton(15px);
+  margin-right: 5px;
+  box-shadow: 5px 5px 5px rgb(149, 148, 148);
 }
 .cart-bar a:hover, .cart-bar button:hover{
-  background-color: #f76b6a;
-  color: white;
+  @include hoverButton;
 }
 .image-field .cart-status {
   display: flex;
@@ -63,10 +60,6 @@
 	right:10px;
 	left: 10px;
 }
-.card-container:hover {
-  box-shadow: 0 2px 0 #f76b6a;
-  border-radius: 4px;
-}
 .product-item img {
   display: block;
   width: 100%;
@@ -75,7 +68,7 @@
 .product-short {
   width: 100%;
   height: 50px;
-  background: #fafafa;
+  background: $backgroundColor;
   overflow: hidden;
 }
 .product-short h6 {
@@ -87,17 +80,16 @@
 }
 .price {
   font-size: 18px;
-  color: #f76b6a;
+  color: $thematColor;
   display: block;
   margin: 15px;
 }
-
 .status-ok {
   width: 30px;
   height: 30px;
   border-radius: 50px;
   color: white;
-  background: #f76b6a;
+  background: $thematColor;
   display: flex;
   align-items: center;
   justify-content: center;

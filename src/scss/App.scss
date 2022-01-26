@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'fontello';
 @import 'banner';
 @import 'slider';
@@ -14,9 +15,7 @@
 *{
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
 }
 html, body {
   font-family: Verdana, Helvetica, Arial, sans-serif;
-  /* height: 100%; */
   }

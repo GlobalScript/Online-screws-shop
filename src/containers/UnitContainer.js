@@ -9,9 +9,9 @@ function UnitContainer(){
         <div className="unit-container">
 {arr.map(item => <Unit key={item} />)}
       </div>
-      {/* <div className="unit-container">
+      <div className="unit-container">
 {arr.map(item => <UnitList key={item} />)}
-      </div> */}
+      </div>
       </>
 }
 export default UnitContainer;

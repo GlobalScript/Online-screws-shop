@@ -1,0 +1,31 @@
+$thematColor: #f76b6a;
+$borderColor: 1px solid #ccc;
+$backgroundColor: #f0f1f1;
+$allTransition: .1s ease-in;
+@mixin styleAnchor($padding) {
+    color: #212121;
+    padding: $padding;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 18px; 
+    border-radius: 4px;
+    transition: $allTransition;
+}
+@mixin styleButton($size) {
+    color: #212121;
+    padding: 10px;
+    text-decoration: none;
+    font-size: $size; 
+    border-radius: 4px;
+    transition: $allTransition;
+    background: $backgroundColor;
+    border: none;
+}
+@mixin hoverAnchor {
+    color:$thematColor;
+    box-shadow: 0 1px 0 $thematColor;
+}
+@mixin hoverButton {
+    background-color: $thematColor;
+    color: white;
+}

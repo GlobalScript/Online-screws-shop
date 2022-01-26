@@ -4,7 +4,7 @@
   /* min-height: calc(100vh - 250px); */
 }
 .single-img {
-    border: 1px solid #d6dbdb;
+    border: $borderColor;
     margin:10px 50px;
    height: 400px;
    width: 400px;
@@ -21,19 +21,11 @@
     flex-direction: column;
 }
 .single-cart-bar a, .single-cart-bar button {
-    color: #212121;
-    padding: 10px;
     margin: 10px;
-    text-decoration: none;
-    font-size: 15px; 
-    border-radius: 4px;
-    transition: .2s ease-in;
-    background: #e2dddd;
-    border: 1px solid #F5F5F5;
+   @include styleButton(15px);
   }
   .single-cart-bar a:hover, .single-cart-bar button:hover{
-    background-color: #f76b6a;
-    color: white;
+    @include hoverButton;
   }
   .single-cart-bar {
       margin: 10px auto;
@@ -46,17 +38,12 @@
     overflow: auto;
   }
   .single-checkout {
+    @include styleAnchor(10px);
     margin: 10px auto;
-    color: #212121;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  border-radius: 4px;
-  box-shadow: 0 1px 0 #f76b6a;
-  transition: .1s ease-in;
-  }
-  .single-checkout:hover {
-    color: #f76b6a;
+    box-shadow: 0 1px 0 $thematColor;
+&:hover {
+  color: $thematColor;
+}
   }
   .single-img {
     position: relative;

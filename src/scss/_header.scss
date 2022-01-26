@@ -5,8 +5,6 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 10px;
-  /* border: 1px dotted #ddd; */
-  
 }
 
 .wrap-logo {
@@ -15,28 +13,20 @@ header {
 }
 
 header a {
-  color: #212121;
-  padding: 12px;
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 18px; 
-  border-radius: 4px;
-  transition: .1s ease-in;
+  @include styleAnchor(12px);
+&:hover {
+  @include hoverAnchor;
+  }  
 }
 .logo img {
  height: 30px;
- /* display: none; */
 }
-header a:hover {
-  color: #f76b6a;
-  box-shadow: 0 1px 0 #f76b6a;
-}
+
 .active-header{
- color:#f76b6a;
- box-shadow: 0 1px 0 #f76b6a;
+ @include hoverAnchor;
 }
  .active-cart {
-  color:#f76b6a;
+  color: $thematColor;
 }
 nav, .header-action-area {
   display: flex;
@@ -52,20 +42,20 @@ nav, .header-action-area {
   position: absolute;
   background-color: #faf6f6;
   text-decoration: none;
-  /* min-width: 100px; */
   border-radius: 4px;
   z-index: 1;
 }
 .categori-link span {
-  color: black;
-  padding: 12px 16px;
-  cursor: pointer;
-  transition: .1s ease-in; 
-  display: block;
-  font-size: 15px;
-}
-.categori-link span:hover{
-  color: #f76b6a;
+    color: black;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: .1s ease-in; 
+    display: block;
+    font-size: 15px;
+    transition: $allTransition; 
+&:hover{
+      color: $thematColor;
+    }
 }
 .categori-block:hover .categori-link {
   display: block;
