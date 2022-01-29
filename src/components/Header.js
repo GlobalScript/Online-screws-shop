@@ -5,11 +5,11 @@ function Header(){
     return (
       <header>
     <div className="wrap-logo">
-      <a href="#" className="logo"><img src={logo}/></a>
+      <a href="/" className="logo"><img src={logo}/></a>
     </div>
     <nav>
- <a href="index.html" >Home</a>
-  <a href="news.html" className='active-header'>Shop</a>
+ <a href="/">Home</a>
+  <a href="/shop" className='active-header'>Shop</a>
   <div className="categori-block">
   <a href="#">Category</a>
   <div className="categori-link">
@@ -18,7 +18,7 @@ function Header(){
     <span>female nuts</span>
   </div>
   </div>
-  <a href="about.html">About</a>
+  <a href="/about">About</a>
     </nav>
     <div className='header-action-area'>
     <div className="cart-status">
@@ -26,9 +26,9 @@ function Header(){
             <h6>999</h6>
             </div>
             </div>
-    <a href="contact.html" className='active-cart' ><i className='icon-basket'></i></a>
-    <a href="index.html"><i className='icon-search'></i></a>
-    <a href="#"><i className='icon-user'></i></a>
+    <a href="/cart" className='active-cart' ><i className='icon-basket'></i></a>
+    <a href="/search"><i className='icon-search'></i></a>
+    <a href="/login"><i className='icon-user'></i></a>
   </div>
     </header>
             )

@@ -1,26 +1,28 @@
 
 import '../scss/App.scss';
-import Header from './Header'
-import ProductHeader from './ProductHeader';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UnitContainer from '../containers/UnitContainer';
-import Footer from './Footer';
 import Search from './Search';
 import CartContainer from '../containers/CartContainer';
-import Carousel from './Slider';
 import SingleProduct from './SingleProduct';
 import NotFoundPage from './NotFoundPage';
+import { Layout } from './Layout';
 
 function App() {
   return (
     <div className="wrapper">
-     <Header />
-     <ProductHeader />
-     <NotFoundPage />
-     <Search />
-     <UnitContainer />
-     <CartContainer />
-     <SingleProduct />
-     <Footer />
+        <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+          <Route index element={<UnitContainer/>} />
+          <Route path="search" element={<Search/>}  />
+          <Route path="shop" element={<UnitContainer/>}  />
+          <Route path="about" element={<SingleProduct/>}  />
+          <Route path="cart" element={<CartContainer/>}  />
+          <Route path="*" element={<NotFoundPage />} />
+          </Route>
+     </Routes>
+     </Router>
     </div>
   );
 }

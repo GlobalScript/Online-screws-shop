@@ -46,7 +46,7 @@ function SingleProduct() {
             </div>
             <div className="single-cart-bar">
                 <button><i className='icon-plus'></i></button>
-                <a  href="contact.html"><i className='icon-basket'></i></a>
+                <a  href="/cart"><i className='icon-basket'></i></a>
                 <button><i className='icon-minus'></i></button>
             </div>
             <a href="#" className="single-checkout">Buy</a>

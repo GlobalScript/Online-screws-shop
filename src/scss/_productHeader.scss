@@ -22,12 +22,15 @@
     border-radius: 4px;
 }
 .area-sort-by {
-    margin-right: 70px;
+    margin: 5px 70px 0 0;
     position: relative;
     display: inline-block;
   }
   .sort {
+    padding: 8px;
+    border-radius: 4px;
     transition: $allTransition; 
+    box-shadow: 0 1px 0 $thematColor;
   &:hover{
       cursor: pointer;
       color: $thematColor;

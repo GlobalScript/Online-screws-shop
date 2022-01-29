@@ -1,7 +1,7 @@
 .single-container {
   display: flex;
   margin-bottom: 30px;
-  /* min-height: calc(100vh - 250px); */
+  min-height: calc(100vh - 265px);
 }
 .single-img {
     border: $borderColor;
@@ -36,6 +36,9 @@
     width: 100%;
     margin-top: 20px;
     overflow: auto;
+  }
+  .single-discription {
+    margin-right: 20px;
   }
   .single-checkout {
     @include styleAnchor(10px);
