@@ -3,14 +3,14 @@
   margin: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  min-height: calc(100vh - 390px);
+  min-height: calc(100vh - 370px);
 }
 .card-container {
   width: 200px;
   height: 300px;
   border-radius: 4px;
   border:$borderColor;
-  margin: 10px;
+  margin: 20px 40px;
   overflow: hidden;
   &:hover {
     @include hoverAnchor;
@@ -70,6 +70,9 @@
   height: 50px;
   background: $backgroundColor;
   overflow: hidden;
+  a {
+    text-decoration: none;
+  }
 }
 .product-short h6 {
   font-size: 15px;

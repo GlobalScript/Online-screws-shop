@@ -1,16 +1,16 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import ProductHeader from "./ProductHeader";
 import Footer from "./Footer";
+import {useSelector} from 'react-redux';
 
 function Layout(){
-    const params = useParams();
-    const empty = Object.keys(params).length === 0;
+    const {status} = useSelector(state => state.visibility);
     return <>
-        {empty && <Header />} 
-        {empty && <ProductHeader/>} 
+        {status && <Header />} 
+        {status && <ProductHeader/>} 
         <Outlet />
-        {empty && <Footer/>}
+        {status && <Footer/>}
    </>
 }
 export {Layout};

@@ -1,5 +1,5 @@
 import Slider from "./Slider";
-import Banner from "./Banner";
+import {Link} from 'react-router-dom';
 
 function SingleProduct() {
     return <>
@@ -46,10 +46,10 @@ function SingleProduct() {
             </div>
             <div className="single-cart-bar">
                 <button><i className='icon-plus'></i></button>
-                <a  href="/cart"><i className='icon-basket'></i></a>
+                <Link  to="/cart"><i className='icon-basket'></i></Link>
                 <button><i className='icon-minus'></i></button>
             </div>
-            <a href="#" className="single-checkout">Buy</a>
+            <Link to="checkout" className="single-checkout">Buy</Link>
         </div>
     </div>
     </> 

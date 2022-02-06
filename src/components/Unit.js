@@ -5,7 +5,7 @@ function Unit(){
         <div className="card-container">
         <div className="product-item">
             <div className="image-field">
-            <a href="#" ><img className="card-img" src="https://krepcom.ru/upload/iblock/916/din_934-aluminium.jpg" alt="image"/></a>
+            <a href="/single" ><img className="card-img" src="https://krepcom.ru/upload/iblock/916/din_934-aluminium.jpg" alt="image"/></a>
             <div className="cart-status">
            <div className="status-ok">
             <h6>3</h6>
@@ -18,7 +18,7 @@ function Unit(){
         </div>
         </div>
         <div className="product-short">
-            <h6>Stainless Steel Hex Head Cap Screw</h6>
+        <a href="/single"> <h6>Stainless Steel Hex Head Cap Screw</h6></a>
         </div>
             <span className="price">&#8372;&nbsp;39</span>	
 

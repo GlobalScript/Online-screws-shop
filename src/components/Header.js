@@ -1,24 +1,30 @@
 
 import logo from "../assets/logo.png";
+import {NavLink} from 'react-router-dom';
+import { useSelector } from "react-redux";
+
+const headLinkActive = ({isActive}) => isActive ? 'active-header' : '';
+const cartActive = ({isActive}) => isActive ? 'active-cart' : '';
 
 function Header(){
+  const {selectUnit} = useSelector(state => state.visibility);
     return (
       <header>
     <div className="wrap-logo">
-      <a href="/" className="logo"><img src={logo}/></a>
+      <NavLink to="home"><img src={logo}/></NavLink>
     </div>
     <nav>
- <a href="/">Home</a>
-  <a href="/shop" className='active-header'>Shop</a>
+  <NavLink to="home" className={headLinkActive}>Home</NavLink>
+  <NavLink to={selectUnit} className={headLinkActive}>Shop</NavLink>
   <div className="categori-block">
-  <a href="#">Category</a>
+  <NavLink to="categori" className={headLinkActive}>Category</NavLink>
   <div className="categori-link">
     <span>Rivet Nuts</span>
     <span>Bolts</span>
     <span>female nuts</span>
   </div>
   </div>
-  <a href="/about">About</a>
+  <NavLink to="about" className={headLinkActive}>About</NavLink>
     </nav>
     <div className='header-action-area'>
     <div className="cart-status">
@@ -26,9 +32,9 @@ function Header(){
             <h6>999</h6>
             </div>
             </div>
-    <a href="/cart" className='active-cart' ><i className='icon-basket'></i></a>
-    <a href="/search"><i className='icon-search'></i></a>
-    <a href="/login"><i className='icon-user'></i></a>
+    <NavLink to="/cart" className={cartActive} ><i className='icon-basket'></i></NavLink>
+    <NavLink to="/search" className={cartActive}><i className='icon-search'></i></NavLink>
+    <NavLink to="/login" className={cartActive}><i className='icon-user'></i></NavLink>
   </div>
     </header>
             )

@@ -1,7 +1,7 @@
-
+import {Link} from 'react-router-dom';
 
 function CartContainer(){
-    const arr = [1,9,10];
+    const arr = [1];
     return (
         <div className="cart-wrapper">
             <div className="banner-field"></div>
@@ -23,10 +23,10 @@ function CartContainer(){
                       <button><i className='icon-cancel'></i></button>
                       </td>
                       <td className="product-img">
-                        <a href="#/"><img src="https://krepcom.ru/upload/iblock/916/din_934-aluminium.jpg" alt="Image-HasTech"/></a>
+                        <Link to="/single"><img src="https://krepcom.ru/upload/iblock/916/din_934-aluminium.jpg" alt="Image-HasTech"/></Link>
                       </td>
                       <td className="product-name">
-                        <h4 className="title"><a href="single-product.html">Meta Slevless Dresss</a></h4>
+                        <h4 className="title"><Link to="single-product.html">Meta Slevless Dresss</Link></h4>
                       </td>
                       <td className="product-price"><span>70&nbsp;&#8372;</span></td>
                       <td className="product-quantity">
@@ -50,7 +50,7 @@ function CartContainer(){
                     <h5>120&nbsp;&#8372;</h5>
                 </div>
                 <div className="checkout-page">
-                <a href="#" >Checkout</a>
+                <Link to="checkout" >Checkout</Link>
                 </div>
               </div>
     )

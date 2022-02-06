@@ -1,11 +1,23 @@
-
+import {Link} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {selectAction} from '../store/elementVisibilitySlice';
 
 function ProductHeader(){
+        const dispatch = useDispatch();
+        const {selectUnit} = useSelector(state => state.visibility);
+    function clickHandle(event){
+        const target = event.target.dataset.nav;
+              dispatch(selectAction(target));
+    }
     return (
         <div className="product-header">
-            <div className="product-list">
-               <button><i className='icon-th-2'></i></button>
-                <button><i className='icon-th-list'></i></button>
+            <div className="product-list" onClick={clickHandle}>
+              <Link to="mosaic"  data-nav="mosaic">
+                  <i className={`icon-th-2 ${selectUnit === "mosaic" && "active-icon"}`}  data-nav="mosaic"></i>
+                  </Link>
+              <Link to="list"  data-nav="list">
+                  <i className={`icon-th-list ${selectUnit === "list" && "active-icon"}`} data-nav="list"></i>
+                  </Link>
             </div>
             <div>
                 <h5 className="title-categori">female nuts</h5>

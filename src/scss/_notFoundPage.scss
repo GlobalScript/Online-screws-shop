@@ -4,7 +4,6 @@
     flex-direction: column;
     justify-content: center;
 }
-
 .not-found-container h1 {
     margin: 10px auto;
     font-size: 70px;
@@ -13,9 +12,10 @@
 .not-found-container h4 {
     margin: 10px auto;
 }
-.not-found-container a {
+.not-found-container span {
     margin: 10px auto;
     @include styleButton(18px);
+    cursor: pointer;
 &:hover {
     @include hoverButton;
     }

@@ -1,18 +1,18 @@
-
+import {Link} from 'react-router-dom';
 
 function UnitList() {
     return <>
      <div className="unit-list-container">
         <div className="unit-list-left-content">
                 <div className="unit-list-img">
-                    <img src="https://metalvis.ua/ProdImg/DIN933_white_zinc.png" />
+                    <Link to="/single"><img src="https://metalvis.ua/ProdImg/DIN933_white_zinc.png" /></Link>
                         <div className="cart-status">
                             <div className="status-ok">
                                 <h6>333</h6>
                             </div>
                 <div className="unit-list-cart-bar">
                     <button><i className='icon-plus'></i></button>
-                    <a  href="#"><i className='icon-basket'></i></a>
+                    <Link  to="#"><i className='icon-basket'></i></Link>
                     <button><i className='icon-minus'></i></button>
                 </div>
                         </div>
