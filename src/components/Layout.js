@@ -3,14 +3,21 @@ import Header from "./Header";
 import ProductHeader from "./ProductHeader";
 import Footer from "./Footer";
 import {useSelector} from 'react-redux';
+import {useEffect, useState} from 'react';
 
 function Layout(){
+    const [state, setState] = useState(false);
     const {status} = useSelector(state => state.visibility);
+    useEffect(()=>{
+setState(status);
+    },[status]);
+
+    
     return <>
-        {status && <Header />} 
-        {status && <ProductHeader/>} 
+        {state && <Header />} 
+        {state && <ProductHeader/>} 
         <Outlet />
-        {status && <Footer/>}
+        {state && <Footer/>}
    </>
 }
 export {Layout};

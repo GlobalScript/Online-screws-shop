@@ -2,7 +2,6 @@
 import '../scss/App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UnitContainer from '../containers/UnitContainer';
-import UnitListContainer from '../containers/UnitListContainer';
 import Search from './Search';
 import CartContainer from '../containers/CartContainer';
 import SingleProduct from './SingleProduct';
@@ -19,8 +18,7 @@ function App() {
           <Route index element={<UnitContainer/>} />
           <Route path="home" element={<Home/>}  />
           <Route path="search" element={<Search/>}  />
-          <Route path="mosaic" element={<UnitContainer/>}  />
-          <Route path="list" element={<UnitListContainer/>}  />
+          <Route path="shop" element={<UnitContainer/>}  />
           <Route path="single" element={<SingleProduct/>}  />
           <Route path="cart" element={<CartContainer/>}  />
           <Route path="*" element={<NotFoundPage />} />

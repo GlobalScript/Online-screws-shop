@@ -15,7 +15,7 @@ function Header(){
     </div>
     <nav>
   <NavLink to="home" className={headLinkActive}>Home</NavLink>
-  <NavLink to={selectUnit} className={headLinkActive}>Shop</NavLink>
+  <NavLink to="shop" className={headLinkActive}>Shop</NavLink>
   <div className="categori-block">
   <NavLink to="categori" className={headLinkActive}>Category</NavLink>
   <div className="categori-link">

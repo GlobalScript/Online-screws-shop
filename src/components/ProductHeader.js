@@ -12,10 +12,10 @@ function ProductHeader(){
     return (
         <div className="product-header">
             <div className="product-list" onClick={clickHandle}>
-              <Link to="mosaic"  data-nav="mosaic">
+              <Link to="shop"  data-nav="mosaic">
                   <i className={`icon-th-2 ${selectUnit === "mosaic" && "active-icon"}`}  data-nav="mosaic"></i>
                   </Link>
-              <Link to="list"  data-nav="list">
+              <Link to="shop"  data-nav="list">
                   <i className={`icon-th-list ${selectUnit === "list" && "active-icon"}`} data-nav="list"></i>
                   </Link>
             </div>

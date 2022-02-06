@@ -9,7 +9,7 @@ function NotFoundPage() {
     const navigate = useNavigate();
     function clicHendle(){
         dispatch(status(true));
-        navigate('home', {replace: true});
+        navigate('shop', {replace: true});
     }
     const dispatch = useDispatch();
     useEffect(()=>{
