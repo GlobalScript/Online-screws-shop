@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
-import {status} from '../store/elementVisibilitySlice';
+import {hidden} from '../store/elementVisibilitySlice';
 import {useNavigate} from 'react-router-dom';
 
 
@@ -8,12 +8,12 @@ import {useNavigate} from 'react-router-dom';
 function NotFoundPage() {
     const navigate = useNavigate();
     function clicHendle(){
-        dispatch(status(true));
+        dispatch(hidden(true));
         navigate('shop', {replace: true});
     }
     const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch(status(false));
+        dispatch(hidden(false));
     },[])
         
     return <>

@@ -7,17 +7,15 @@ import {useEffect, useState} from 'react';
 
 function Layout(){
     const [state, setState] = useState(false);
-    const {status} = useSelector(state => state.visibility);
+    const {hidden} = useSelector(state => state.visibility);
     useEffect(()=>{
-setState(status);
-    },[status]);
-
-    
+        setState(hidden);
+    },[hidden]);
     return <>
         {state && <Header />} 
         {state && <ProductHeader/>} 
         <Outlet />
         {state && <Footer/>}
-   </>
+    </>
 }
 export {Layout};
