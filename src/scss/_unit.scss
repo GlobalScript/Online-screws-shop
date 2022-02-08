@@ -46,10 +46,11 @@
 .cart-bar a, .cart-bar button {
   @include styleButton(15px);
   margin-right: 5px;
-  box-shadow: 5px 5px 5px rgb(149, 148, 148);
+  background-color: $greythematColor;
+  box-shadow: 3px 3px 1px rgb(149, 148, 148);
 }
 .cart-bar a:hover, .cart-bar button:hover{
-  @include hoverButton;
+  @include hoverButtonCard;
 }
 .image-field .cart-status {
   display: flex;
@@ -92,7 +93,7 @@
   height: 30px;
   border-radius: 50px;
   color: white;
-  background: $thematColor;
+  background: $greythematColor;
   display: flex;
   align-items: center;
   justify-content: center;

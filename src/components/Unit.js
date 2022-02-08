@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 function Unit({id, short, price, category, image, description}){
     
@@ -5,7 +6,7 @@ function Unit({id, short, price, category, image, description}){
         <div className="card-container">
         <div className="product-item">
             <div className="image-field">
-            <a href="/single" ><img className="card-img" src={image} alt="image"/></a>
+            <Link to="/single" ><img className="card-img" src={image} alt="image"/></Link>
             <div className="cart-status">
            <div className="status-ok">
             <h6>3</h6>
@@ -13,14 +14,14 @@ function Unit({id, short, price, category, image, description}){
             </div>
             <div className="cart-bar">
             <button><i className='icon-plus'></i></button>
-            <a  href="contact.html"><i className='icon-basket'></i></a>
+            <Link  to="/cart"><i className='icon-basket'></i></Link>
             <button><i className='icon-minus'></i></button>
         </div>
         </div>
         <div className="product-short">
-        <a href="/single"> <h6>{short}</h6></a>
+        <Link to="/single"> <h6>{short}</h6></Link>
         </div>
-            <span className="price">{price}</span>	
+            <span className="price">{price}&nbsp;&#x24;</span>	
 
       </div>
       </div>

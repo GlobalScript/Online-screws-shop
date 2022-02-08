@@ -23,7 +23,7 @@ function SingleProduct() {
         </div>
         <div className="single-right-content">
             <h2>Bolts</h2>
-            <span className="price">&#8372;&nbsp;39</span>
+            <span className="price">63&nbsp;&#x24;</span>
             <h5>Description</h5>
             <div className="single-discription">
             <p>ipsum dolor sit amet, consectetur adipisicing elit,

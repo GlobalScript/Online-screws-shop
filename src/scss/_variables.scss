@@ -1,4 +1,5 @@
 $thematColor: #f76b6a;
+$greythematColor: #6edd80;
 $borderColor: 1px solid #ccc;
 $backgroundColor: #f0f1f1;
 $allTransition: .1s ease-in;
@@ -20,12 +21,19 @@ $allTransition: .1s ease-in;
     transition: $allTransition;
     background: $backgroundColor;
     border: none;
+    cursor: pointer;
 }
 @mixin hoverAnchor {
     color:$thematColor;
-    box-shadow: 0 1px 0 $thematColor;
+    box-shadow: 0 2px 0 $thematColor;
+}
+@mixin hoverButtonCard {
+    background: $backgroundColor;
+    color: #212121;
 }
 @mixin hoverButton {
-    background-color: $thematColor;
+    background: $thematColor;
     color: white;
+    
 }
+

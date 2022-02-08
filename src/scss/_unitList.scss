@@ -41,10 +41,11 @@
   .unit-list-cart-bar a, .unit-list-cart-bar button {
       @include styleButton(15px);
       margin-right: 5px;
-      box-shadow: 5px 5px 5px rgb(149, 148, 148);
+      background-color: $greythematColor;
+      box-shadow: 3px 3px 1px rgb(149, 148, 148);
     }
     .unit-list-cart-bar a:hover, .unit-list-cart-bar button:hover{
-     @include hoverButton;
+     @include hoverButtonCard;
     }
     .unit-list-img {
       position: relative;

@@ -11,11 +11,11 @@ function Header(){
     return (
       <header>
     <div className="wrap-logo">
-      <NavLink to="home"><img src={logo}/></NavLink>
+      <NavLink to="/home"><img src={logo} alt="logo"/></NavLink>
     </div>
     <nav>
-  <NavLink to="home" className={headLinkActive}>Home</NavLink>
-  <NavLink to="shop" className={headLinkActive}>Shop</NavLink>
+  <NavLink to="/home" className={headLinkActive}>Home</NavLink>
+  <NavLink to="/shop" className={headLinkActive}>Shop</NavLink>
   <div className="categori-block">
   <NavLink to="categori" className={headLinkActive}>Category</NavLink>
   <div className="categori-link">
@@ -24,7 +24,7 @@ function Header(){
     <span>female nuts</span>
   </div>
   </div>
-  <NavLink to="about" className={headLinkActive}>About</NavLink>
+  <NavLink to="/about" className={headLinkActive}>About</NavLink>
     </nav>
     <div className='header-action-area'>
     <div className="cart-status">
