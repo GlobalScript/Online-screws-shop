@@ -2,10 +2,11 @@
     height: 120px;
     background-color: $backgroundColor;
 }
-.banner-field p {
-    color: $thematColor;
-    text-align: center;
-    line-height: 170px;
+.banner-field img {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
 }
 .banner-field h1 {
     text-align: center;

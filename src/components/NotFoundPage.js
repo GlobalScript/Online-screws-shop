@@ -15,11 +15,11 @@ function clicHendle(){
         navigate('shop', {replace: true});
     }  
     return <>
-    <div className="banner-field"><h1>{status === "rejected" ? "Server is not responding" : 404}</h1></div>
+    <div className="banner-not-found"><h1>{status === "rejected" ? "Server is not responding" : 404}</h1></div>
     <div className="not-found-container">
         <h1>{status === "rejected" ? "Server is not responding" : 404}</h1>
         <h4>Opps!{status === "rejected" ? "Server is not responding": "PAGE NOT BE FOUND"} </h4>
-        <span onClick={clicHendle}>{status === "rejected" ? "Restore" : "Home"}</span>
+        <span onClick={clicHendle}>{status === "rejected" ?  <a href="home">Restore</a> : "Home"}</span>
     </div>
     </>
 }

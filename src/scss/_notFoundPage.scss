@@ -20,3 +20,15 @@
     @include hoverButton;
     }
 }
+.banner-not-found {
+    height: 120px;
+    background-color: $backgroundColor; 
+}
+.banner-not-found h1 {
+    text-align: center;
+    line-height: 110px; 
+}
+.not-found-container a {
+    text-decoration: none;
+    color: rgb(39, 38, 38);
+}

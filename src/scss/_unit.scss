@@ -46,7 +46,7 @@
 .cart-bar a, .cart-bar button {
   @include styleButton(15px);
   margin-right: 5px;
-  background-color: $greythematColor;
+  background-color: $backgroundColor;
   box-shadow: 3px 3px 1px rgb(149, 148, 148);
 }
 .cart-bar a:hover, .cart-bar button:hover{

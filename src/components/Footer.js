@@ -6,9 +6,9 @@ function Footer(){
         <div className="footer-container">
           <Link to="home"><img className="footer-logo" src={logo}/></Link>
           <div className="nav-block">
-            <Link to="home">Home</Link>
-            <Link to="/login">Registry/Sign in</Link>
-            <Link to="/about">About</Link>
+            <Link to="home"><i className="icon-home-outline"></i></Link>
+            <Link to="/login"><i className="icon-user-outline"></i></Link>
+            <Link to="/about"><i className="icon-doc-text"></i></Link>
             <p className="description">© Internet-shop «Petrovich™»</p>
         </div>
         <div className="contacts-block">

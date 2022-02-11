@@ -28,7 +28,7 @@ $allTransition: .1s ease-in;
     box-shadow: 0 2px 0 $thematColor;
 }
 @mixin hoverButtonCard {
-    background: $backgroundColor;
+    background: $thematColor;
     color: #212121;
 }
 @mixin hoverButton {

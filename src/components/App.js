@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
           <Route index element={<UnitContainer/>} />
-          <Route path="home" element={<Home/>}  />
+          <Route path="home" element={<Home/>} />
           <Route path="search" element={<Search/>}  />
           <Route path="shop" element={<UnitContainer/>}  />
           <Route path="single" element={<SingleProduct/>}  />
