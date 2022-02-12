@@ -7,13 +7,12 @@ import UnitList from "../components/UnitList";
 import Banner from "../components/Banner";
 import NotFoundPage from '../components/NotFoundPage';
 
-
 function UnitContainer(){
-     const {selectUnit, category} = useSelector(state => state.visibility);
+      const {selectUnit, category} = useSelector(state => state.visibility);
       const {goods, status} = useSelector(state => state.goods);
       const [items, setItems] = useState([]);
       const dispatch = useDispatch();
-      useEffect(() => {
+  useEffect(() => {
         !status && dispatch(fetchGoods()); 
         if(category)setItems(goods.filter(unit => unit.category === category));
         else setItems(goods);

@@ -11,7 +11,6 @@ export const fetchGoods = createAsyncThunk('goods/fetchGoods', async function(_,
        return rejectWithValue(error.message);
     }
 });
-
 const goodsSlice = createSlice({
     name: "goods",
     initialState: {
@@ -20,7 +19,6 @@ const goodsSlice = createSlice({
         error: null,
     },
     reducers: {
-
     },
     extraReducers: {
         [fetchGoods.pending]: (state) => {

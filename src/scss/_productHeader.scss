@@ -6,6 +6,9 @@
     margin-left: 20px;
     margin-right: 20px;
 }
+ .product-list {
+   margin-bottom: 12px;
+ }
   .product-list a  {
     @include styleButton(15px);
   &:hover{
@@ -59,4 +62,6 @@
   .area-sort-by:hover .sort-by {
     display: block;
   }
-  
+  .hidden {
+    display: none;
+  }

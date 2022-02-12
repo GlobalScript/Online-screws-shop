@@ -15,16 +15,15 @@ function UnitList({id, short, price, category, image, description}) {
                     <Link  to="/cart"><i className='icon-basket'></i></Link>
                     <button><i className='icon-minus'></i></button>
                 </div>
-                        </div>
+                </div>
                 </div>
         </div>
         <div className="unit-list-right-content">
-            <h2>{short}</h2>
-            <span className="price">{price}&nbsp;&#x24;</span>
-            <h4>Descriptions</h4>
+                <h2>{short}</h2>
+                <span className="price">{price}&nbsp;&#x24;</span>
+                <h4>Descriptions</h4>
                 <div className="unit-list-discription">
                     <span>{description}</span>
-
                 </div>
         </div>
     </div>
