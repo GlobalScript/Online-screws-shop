@@ -4,16 +4,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const elementVisibility = createSlice({
     name: "visibility",
     initialState: {
-        hidden: true,
+        activeComponent: true,
+        activeSort: false,
         selectUnit: "mosaic",
         category: null,
-        activeSort: true,
+        selectBy: ""
     },
     reducers: {
-        hidden(state, action) {
-            state.hidden = action.payload;
+        hiddenComponent(state, action) {
+            state.activeComponent = action.payload;
         },
-        selectAction(state, action) {
+        selectCategory(state, action) {
             state.selectUnit = action.payload;
         },
         categories(state, action) {
@@ -21,9 +22,18 @@ const elementVisibility = createSlice({
         },
         hiddenSort(state, action) {
             state.activeSort = action.payload;
+        },
+        selectSort(state, action) {
+            state.selectBy = action.payload;
         }
     }
 });
 
-export const {hidden, selectAction, categories, hiddenSort} = elementVisibility.actions;
+export const {hiddenComponent,
+                    selectAction,
+                    categories,
+                    hiddenSort, 
+                    selectCategory,
+                    selectSort,
+                } = elementVisibility.actions;
 export default elementVisibility.reducer;

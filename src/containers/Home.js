@@ -1,7 +1,7 @@
 import screws from "../assets/screws.png";
 import bolts from "../assets/bolts.jpg";
 import fittings from "../assets/fittings.jpg";
-import Banner from "./Banner";
+import Banner from "../components/Banner";
 import { useDispatch } from "react-redux";
 import { categories, hiddenSort } from "../store/elementVisibilitySlice";
 import { useNavigate } from "react-router-dom";

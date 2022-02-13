@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UnitContainer from '../containers/UnitContainer';
 import Search from './Search';
 import CartContainer from '../containers/CartContainer';
-import SingleProduct from './SingleProduct';
+import SingleProduct from '../containers/SingleProduct';
 import NotFoundPage from './NotFoundPage';
-import Home from './Home';
-import { Layout } from './Layout';
+import Home from '../containers/Home';
+import { Layout } from '../containers/Layout';
 
 function App() {
   return (

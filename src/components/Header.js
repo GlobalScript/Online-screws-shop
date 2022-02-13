@@ -32,7 +32,7 @@ function navigateClick(event) {
     return (
         <header>
         <div className="wrap-logo">
-          <NavLink to="/home"><img src={logo} alt="logo"/></NavLink>
+          <NavLink to="/home" onClick={navigateClick}><img src={logo} alt="logo"/></NavLink>
         </div>
     <nav>
       <NavLink to="/home" className={headLinkActive} onClick={navigateClick}>Home</NavLink>
@@ -60,4 +60,4 @@ function navigateClick(event) {
     </header>
     )
 }
-export default Header ;
+export default Header;

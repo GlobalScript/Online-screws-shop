@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {hidden} from '../store/elementVisibilitySlice';
+import {hiddenComponent} from '../store/elementVisibilitySlice';
 import {useNavigate} from 'react-router-dom';
 
 function NotFoundPage() {
     useEffect(()=>{
-        dispatch(hidden(false));
+        dispatch(hiddenComponent(false));
     },[]);
     const dispatch = useDispatch();
     const {status} = useSelector(state=> state.goods);
     const navigate = useNavigate();
 function clicHendle(){
-        dispatch(hidden(true));
+        dispatch(hiddenComponent(true));
         navigate('shop', {replace: true});
     }  
     return <>
