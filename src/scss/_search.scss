@@ -1,16 +1,22 @@
-
 .search-container {
+    min-height: calc(100vh - 380px);
+}
+.search-input {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    min-height: calc(100vh - 370px);
 }
-.search-container input{
+.search-input input{
     border: 1px solid #bcb8b8;
     height: 40px;
     padding: 8px 10px;
     font-size: 18px;
     padding-right: 100px;
+}
+.cards-found {
+    display: flex;
+    flex-wrap: wrap;
+    
 }
 
 

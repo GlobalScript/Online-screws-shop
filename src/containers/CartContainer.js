@@ -4,7 +4,7 @@ function CartContainer(){
     const arr = [1];
     return (
         <div className="cart-wrapper">
-            <div className="banner-field"></div>
+            <div className="banner-field"><h1>Cart</h1></div>
 <table className="cart-table">
                   <thead>
                     <tr className="head-team">
