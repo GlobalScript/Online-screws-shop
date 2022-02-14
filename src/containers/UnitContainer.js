@@ -31,15 +31,17 @@ function UnitContainer(){
       const {goods, status} = useSelector(state => state.goods);
       const [items, setItems] = useState([]);
       const dispatch = useDispatch();
-  useEffect(() => {
+useEffect(() => {
         !status && dispatch(fetchGoods()); 
         setItems(sortBy(goods, category, selectBy));
       },[category, status, selectBy]);
-    return <> 
+    return <div className="field-product"> 
         {status === "rejected" && <NotFoundPage />}
         {status === "resolved" && <Banner />}          
-        {selectUnit === "mosaic" && <div className="unit-container">{items.map(item => <Unit key={item.id} {...item} />)}</div>}         
-        {selectUnit === "list" && <div className="unit-container">{items.map(item => <UnitList key={item.id} {...item} />)}</div>}      
-            </>
+        {selectUnit === "mosaic" && <div className="unit-container">
+          {items.map(item => <Unit key={item.id} {...item} />)}</div>}         
+        {selectUnit === "list" && <div className="unit-container">
+          {items.map(item => <UnitList key={item.id} {...item} />)}</div>}      
+            </div>
 }
 export default UnitContainer;

@@ -6,6 +6,7 @@ const elementVisibility = createSlice({
     initialState: {
         activeComponent: true,
         activeSort: false,
+        activeSearch: true,
         selectUnit: "mosaic",
         category: null,
         selectBy: ""
@@ -25,6 +26,9 @@ const elementVisibility = createSlice({
         },
         selectSort(state, action) {
             state.selectBy = action.payload;
+        },
+        searchPage(state, action) {
+            state.activeSearch = action.payload;
         }
     }
 });
@@ -35,5 +39,6 @@ export const {hiddenComponent,
                     hiddenSort, 
                     selectCategory,
                     selectSort,
+                    searchPage,
                 } = elementVisibility.actions;
 export default elementVisibility.reducer;
