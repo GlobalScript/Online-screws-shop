@@ -25,7 +25,6 @@ function sortBy(goods, category, selectBy) {
         return categoriesFilter;
     }
   };
-
 function UnitContainer(){
       const {selectUnit, category, selectBy} = useSelector(state => state.visibility);
       const {goods, status} = useSelector(state => state.goods);

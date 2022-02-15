@@ -1,12 +1,24 @@
 import Slider from "../components/Slider";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {useEffect} from 'react';
+import {hiddenSort, categories} from '../store/elementVisibilitySlice';
 
 function SingleProduct() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const {unit} = useSelector(state => state.goods);
+    const {id, short, price, category, image, description} = unit;
+    useEffect(()=> {
+        if(!unit.id) navigate('../shop', {replace: true});
+        dispatch(hiddenSort(true));
+        dispatch(categories(null));
+    },[]);
     return <>
     <div className="single-container">
         <div className="single-left-content">
                 <div className="single-img">
-                    <img src="https://metalvis.ua/ProdImg/DIN933_white_zinc.png" />
+                    <img src={image} />
                     <div className="cart-status">
            <div className="status-ok">
             <h6>333</h6>
@@ -14,35 +26,19 @@ function SingleProduct() {
             </div>
                 </div>
                 <Slider>
-            <div className="item item-1"><img src="https://metalvis.ua/ProdImg/DIN933_white_zinc.png" /></div>
-            <div className="item item-2">item-2</div>
-            <div className="item item-3">item-3</div>
-            <div className="item item-4">item-4</div>
-            <div className="item item-5">item-5</div>
+            <div className="item item-1"><img src={image} /></div>
+            <div className="item item-2"><img src={image} /></div>
+            <div className="item item-3"><img src={image} /></div>
+            <div className="item item-4"><img src={image} /></div>
+            <div className="item item-5"><img src={image} /></div>
                 </Slider>
         </div>
         <div className="single-right-content">
-            <h2>Bolts</h2>
-            <span className="price">63&nbsp;&#x24;</span>
+            <h2>{short}</h2>
+            <span className="price">{price}&nbsp;&#x24;</span>
             <h5>Description</h5>
             <div className="single-discription">
-            <p>ipsum dolor sit amet, consectetur adipisicing elit,
-                 sed do eiusmod tempor incididunt ut labore et dolore 
-                 magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                 exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat. Duis aute irure dolor in reprehenderit
-                   in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                     qui officia deserunt mollit anim id est laborum.
-                     ipsum dolor sit amet, consectetur adipisicing elit,
-                 sed do eiusmod tempor incididunt ut labore et dolore 
-                 magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                 exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat. Duis aute irure dolor in reprehenderit
-                   in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                     qui officia deserunt mollit anim id est laborum.
-            </p>
+            <p>{description}</p>
             </div>
             <div className="single-cart-bar">
                 <button><i className='icon-plus'></i></button>

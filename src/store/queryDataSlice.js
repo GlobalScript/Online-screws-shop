@@ -15,10 +15,14 @@ const goodsSlice = createSlice({
     name: "goods",
     initialState: {
         goods: [],
+        unit: {},
         status: null,
         error: null,
     },
     reducers: {
+        unitProps(state, action) {
+            state.unit = action.payload;
+        }
     },
     extraReducers: {
         [fetchGoods.pending]: (state) => {
@@ -36,5 +40,5 @@ const goodsSlice = createSlice({
     }
 });
 
-export const {} = goodsSlice.actions;
+export const {unitProps} = goodsSlice.actions;
 export default goodsSlice.reducer;

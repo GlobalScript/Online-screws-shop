@@ -1,11 +1,22 @@
-import {Link} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {useNavigate, Link} from 'react-router-dom';
+import { unitProps } from '../store/queryDataSlice';
 
-function Unit({id, short, price, category, image, description}){
+
+
+function Unit(props){
+    const dispatch = useDispatch();
+    const {id, short, price, category, image, description} = props;
+    const navigate = useNavigate();
+function clickUnit() {
+    dispatch(unitProps(props));
+    navigate('../single', {replace: true});
+}
     return (
         <div className="card-container">
         <div className="product-item">
             <div className="image-field">
-                <Link to="/single" ><img className="card-img" src={image} alt="image"/></Link>
+                <img className="card-img" src={image} alt="image" onClick={clickUnit}/>
             <div className="cart-status">
             <div className="status-ok">
                 <h6>3</h6>
