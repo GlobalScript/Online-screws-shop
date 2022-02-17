@@ -11,7 +11,7 @@ function SingleProduct() {
     const {id, short, price, category, image0,image1, image2, image3, image4, description} = unit;
     const [srcImage, setSrcImage] = useState(image0);
     useEffect(()=> {
-        if(!unit.id) navigate('../shop', {replace: true});
+        if(!unit.id) navigate('../shop', {replace: false});
         dispatch(hiddenSort(true));
         dispatch(categories(null));
         dispatch(hiddenComponent(true));
@@ -51,7 +51,8 @@ function SingleProduct() {
                 <Link  to="/cart"><i className='icon-basket'></i></Link>
                 <button><i className='icon-minus'></i></button>
             </div>
-            <Link to="checkout" className="single-checkout">Buy</Link>
+            {/* <Link to="checkout" className="single-checkout">Buy</Link> */}
+            <button className="single-go-back" onClick={() => navigate(-1)}>Go Back</button>
         </div>
     </div>
     </> 

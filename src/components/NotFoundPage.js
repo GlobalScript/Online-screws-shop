@@ -14,7 +14,7 @@ function NotFoundPage() {
     const navigate = useNavigate();
 function clicHendle(){
         dispatch(hiddenComponent(true));
-        navigate('home', {replace: true});
+        navigate('home', {replace: false});
     }  
     return <>
     <div className="banner-not-found"><h1>{status === "rejected" ? "Server is not responding" : 404}</h1></div>

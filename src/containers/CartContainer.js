@@ -1,7 +1,14 @@
+import { useEffect } from 'react';
 import {Link} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import { hiddenComponent } from '../store/elementVisibilitySlice';
 
 function CartContainer(){
-    const arr = [1];
+      const arr = [4,3,3];
+      const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(hiddenComponent(true));
+  },[]);
     return (
         <div className="cart-wrapper">
             <div className="banner-field"><h1>Cart</h1></div>

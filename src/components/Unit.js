@@ -10,7 +10,7 @@ function Unit(props){
     const navigate = useNavigate();
 function clickUnit() {
     dispatch(unitProps(props));
-    navigate('../single', {replace: true});
+    navigate('../single', {replace: false});
 }
     return (
         <div className="card-container">

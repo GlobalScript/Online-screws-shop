@@ -24,7 +24,7 @@ function categoryClick(event) {
         break;
       }
         dispatch(hiddenSort(target ? false : true));
-        navigate("../shop", {replace: true})
+        navigate("../shop", {replace: false})
   }
     return <>
                     <Banner />
