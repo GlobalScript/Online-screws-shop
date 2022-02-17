@@ -4,13 +4,18 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { categories, hiddenSort } from "../store/elementVisibilitySlice";
 import { useNavigate } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import { hiddenComponent } from "../store/elementVisibilitySlice";
+ 
 const headLinkActive = ({isActive}) => isActive ? 'active-header' : '';
 const cartActive = ({isActive}) => isActive ? 'active-cart' : '';
 
 function Header(){
       const navigate = useNavigate();
       const dispatch = useDispatch();
+      useEffect(()=> {
+        dispatch(hiddenComponent(true));
+      },[]);
 function categoryClick(event) {
       const target = event.target.dataset.category;
       switch(target) {

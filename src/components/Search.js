@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGoods } from "../store/queryDataSlice";
+import { hiddenComponent } from "../store/elementVisibilitySlice";
 import Unit from "./Unit";
 import UnitList from "./UnitList";
 
@@ -10,7 +11,8 @@ function Search(){
     const {selectUnit} = useSelector(state => state.visibility);
     const [found, setFound] = useState([]);
 useEffect(() => {
-        !status && dispatch(fetchGoods()); 
+        !status && dispatch(fetchGoods());
+        dispatch(hiddenComponent(true));
     },[]);
 function searchFilter(goods, value){
     return goods.filter(elem => {

@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UnitContainer from '../containers/UnitContainer';
 import Search from './Search';
 import CartContainer from '../containers/CartContainer';
-import SingleProduct from '../containers/SingleProduct';
+import SingleProduct from './SingleProduct';
 import NotFoundPage from './NotFoundPage';
-import Home from '../containers/Home';
-import { Layout } from '../containers/Layout';
+import Home from './Home';
+import Layout from './Layout';
+import About from './About';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="shop" element={<UnitContainer/>}  />
           <Route path="single" element={<SingleProduct/>}  />
           <Route path="cart" element={<CartContainer/>}  />
+          <Route path="about" element={<About/>}  />
           <Route path="*" element={<NotFoundPage />} />
           </Route>
      </Routes>

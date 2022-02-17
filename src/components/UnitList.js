@@ -6,7 +6,7 @@ import { unitProps } from '../store/queryDataSlice';
 
 function UnitList(props){
     const dispatch = useDispatch();
-    const {id, short, price, category, image, description} = props;
+    const {id, short, price, category, image0, description} = props;
     const navigate = useNavigate();
 function clickUnit() {
     dispatch(unitProps(props));
@@ -16,7 +16,7 @@ function clickUnit() {
      <div className="unit-list-container">
         <div className="unit-list-left-content">
                 <div className="unit-list-img">
-                <img className="card-img" src={image} alt="image" onClick={clickUnit}/>
+                <img className="card-img" src={image0} alt="image" onClick={clickUnit}/>
                         <div className="cart-status">
                             <div className="status-ok">
                                 <h6>333</h6>

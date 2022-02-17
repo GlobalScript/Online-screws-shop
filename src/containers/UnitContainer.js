@@ -2,6 +2,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchGoods } from '../store/queryDataSlice';
+import { hiddenComponent } from '../store/elementVisibilitySlice';
 import {orderBy} from 'lodash';
 import Unit from "../components/Unit";
 import UnitList from "../components/UnitList";
@@ -33,6 +34,7 @@ function UnitContainer(){
 useEffect(() => {
         !status && dispatch(fetchGoods()); 
         setItems(sortBy(goods, category, selectBy));
+        dispatch(hiddenComponent(true));
       },[category, status, selectBy]);
     return <div className="field-product"> 
         {status === "rejected" && <NotFoundPage />}

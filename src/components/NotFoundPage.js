@@ -4,11 +4,13 @@ import {hiddenComponent} from '../store/elementVisibilitySlice';
 import {useNavigate} from 'react-router-dom';
 
 function NotFoundPage() {
+    const {activeComponent} = useSelector(state => state.visibility);
     useEffect(()=>{
         dispatch(hiddenComponent(false));
-    },[]);
+    },[activeComponent]);
     const dispatch = useDispatch();
     const {status} = useSelector(state=> state.goods);
+    
     const navigate = useNavigate();
 function clicHendle(){
         dispatch(hiddenComponent(true));
