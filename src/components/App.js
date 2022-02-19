@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UnitContainer from '../containers/UnitContainer';
 import Search from './Search';
 import CartContainer from '../containers/CartContainer';
-import SingleProduct from './SingleProduct';
+import SingleContainer from '../containers/SingleContainer';
 import NotFoundPage from './NotFoundPage';
 import Home from './Home';
 import Layout from './Layout';
@@ -20,7 +20,7 @@ function App() {
           <Route path="home" element={<Home/>} />
           <Route path="search" element={<Search/>}  />
           <Route path="shop" element={<UnitContainer/>}  />
-          <Route path="single" element={<SingleProduct/>}  />
+          <Route path="single" element={<SingleContainer/>}  />
           <Route path="cart" element={<CartContainer/>}  />
           <Route path="about" element={<About/>}  />
           <Route path="*" element={<NotFoundPage />} />

@@ -22,12 +22,14 @@
   }
 .nav-block a {
       font-size: 18px;
+      margin-left: 15px;
 &:hover {
     @include hoverAnchor;
       }
   }
-.description {
-      font-size: 10px;
+.footer-description {
+      font-size: 12px;
       text-align: center;
       margin-top: 30px;
+      margin-left: 10px ;
   }

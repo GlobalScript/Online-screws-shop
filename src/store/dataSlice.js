@@ -22,7 +22,7 @@ const goodsSlice = createSlice({
     reducers: {
         unitProps(state, action) {
             state.unit = action.payload;
-        }
+        },
     },
     extraReducers: {
         [fetchGoods.pending]: (state) => {
@@ -41,4 +41,5 @@ const goodsSlice = createSlice({
 });
 
 export const {unitProps} = goodsSlice.actions;
+export const goodsState = state => state.dataGoods;
 export default goodsSlice.reducer;

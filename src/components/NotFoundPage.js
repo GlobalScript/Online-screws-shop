@@ -9,7 +9,7 @@ function NotFoundPage() {
         dispatch(hiddenComponent(false));
     },[activeComponent]);
     const dispatch = useDispatch();
-    const {status} = useSelector(state=> state.goods);
+    const {status} = useSelector(state=> state.dataGoods);
     
     const navigate = useNavigate();
 function clicHendle(){
@@ -22,6 +22,7 @@ function clicHendle(){
         <h1>{status === "rejected" ? "Server is not responding" : 404}</h1>
         <h4>Opps!{status === "rejected" ? "Server is not responding": "PAGE NOT BE FOUND"} </h4>
         <span onClick={clicHendle}>{status === "rejected" ?  <a href="home">Restore</a> : "Home"}</span>
+        <span onClick={() => navigate(-1)}>Go Back</span>
     </div>
     </>
 }

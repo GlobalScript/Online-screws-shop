@@ -20,11 +20,11 @@
     display: flex;
     flex-direction: column;
 }
-.single-cart-bar a, .single-cart-bar button {
+.single-cart-bar a, .single-cart-bar i {
     margin: 10px;
    @include styleButton(15px);
   }
-  .single-cart-bar a:hover, .single-cart-bar button:hover{
+  .single-cart-bar a:hover, .single-cart-bar i:hover{
     @include hoverButton;
   }
   .single-cart-bar {

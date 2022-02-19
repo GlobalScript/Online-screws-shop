@@ -1,7 +1,7 @@
 
 import logo from "../assets/logo.png";
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { categories, hiddenSort } from "../store/elementVisibilitySlice";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -13,6 +13,7 @@ const cartActive = ({isActive}) => isActive ? 'active-cart' : '';
 function Header(){
       const navigate = useNavigate();
       const dispatch = useDispatch();
+      const {count} = useSelector(state => state.countGoods);
       useEffect(()=> {
         dispatch(hiddenComponent(true));
       },[]);
@@ -53,11 +54,14 @@ function navigateClick(event) {
         <NavLink to="/about" className={headLinkActive} onClick={navigateClick}>About</NavLink>
     </nav>
       <div className='header-action-area'>
-      <div className="cart-status">
+     {Object.keys(count).length !== 0 && <div className="cart-status">
             <div className="status-ok">
-              <h6>999</h6>
-      </div>
-      </div>
+              <h6>{Object.keys(count).reduce((previous, item) => {
+                   previous =  previous + count[item];
+                    return previous;
+              }, 0) }</h6>
+      </div> 
+      </div> }
     <NavLink to="/cart" className={cartActive}><i className='icon-basket' onClick={navigateClick}></i></NavLink>
     <NavLink to="/search" className={cartActive}><i className='icon-search'onClick={navigateClick} ></i></NavLink>
     <NavLink to="/login" className={cartActive}><i className='icon-user' onClick={navigateClick}></i></NavLink>

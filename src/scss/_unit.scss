@@ -43,13 +43,13 @@
 	right:0px;
 	left: 0px;
 }
-.cart-bar a, .cart-bar button {
+.cart-bar a, .cart-bar i {
   @include styleButton(15px);
   margin-right: 5px;
   background-color: $backgroundColor;
   box-shadow: 3px 3px 1px rgb(149, 148, 148);
 }
-.cart-bar a:hover, .cart-bar button:hover{
+.cart-bar a:hover, .cart-bar i:hover{
   @include hoverButtonCard;
 }
 .image-field .cart-status {
@@ -65,6 +65,7 @@
   display: block;
   width: 100%;
   position: relative;
+  cursor: pointer;
 }
 .product-short {
   width: 100%;
@@ -108,4 +109,5 @@
   width: 200px;
   margin: 50px auto;
 }
+
 

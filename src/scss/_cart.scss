@@ -1,6 +1,6 @@
 
 .cart-wrapper {
-    min-height: calc(100vh - 235px); 
+    min-height: calc(100vh - 240px); 
 }
 .cart-table  {
     margin: 20px auto;
@@ -16,17 +16,9 @@
 .cart-table td {
     height: 120px;
 }
-.cart-table button{
-  color: #212121;
-  padding: 7px;
+.cart-table i{
+  @include styleButton(12px);
   margin: 5px;
-  text-decoration: none;
-  font-size: 15px; 
-  border-radius: 4px;
-  transition: $allTransition;
-  background: $backgroundColor;
-  border: none;
-  cursor: pointer;
 &:hover {
     background-color: $thematColor;
     color: white;
@@ -34,6 +26,9 @@
 }
 .product-img img {
     width: 100px;
+    height: 100px;
+    object-fit: contain;
+    cursor: pointer;
 }
 .product-name a {
     @include styleAnchor(12px);
@@ -83,11 +78,26 @@
     display: block;
     margin-bottom: 100px;
 }
-.checkout-page a {
+.checkout-page a,  {
     @include styleAnchor(12px);
     box-shadow: 0 1px 0 $thematColor;
+    cursor: pointer;
+    margin-left: 20px;
 &:hover {
     @include hoverAnchor;
     }
 }
-
+.cart-container-go-back {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.cart-container-go-back a {
+    @include styleAnchor(12px);
+    box-shadow: 0 1px 0 $thematColor;
+    cursor: pointer;
+    margin-left: 20px;
+&:hover {
+    @include hoverAnchor;
+    }
+}

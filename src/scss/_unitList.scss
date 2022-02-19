@@ -38,13 +38,13 @@
     font-size: 14px;
    
  }
-  .unit-list-cart-bar a, .unit-list-cart-bar button {
+  .unit-list-cart-bar a, .unit-list-cart-bar i {
       @include styleButton(15px);
       margin-right: 5px;
       background-color: $backgroundColor;
       box-shadow: 3px 3px 1px rgb(149, 148, 148);
     }
-    .unit-list-cart-bar a:hover, .unit-list-cart-bar button:hover{
+    .unit-list-cart-bar a:hover, .unit-list-cart-bar i:hover{
      @include hoverButtonCard;
     }
     .unit-list-img {

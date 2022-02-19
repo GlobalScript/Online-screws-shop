@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import elementVisibility from './elementVisibilitySlice';
-import goodsSlice from './queryDataSlice';
+import goodsSlice from './dataSlice';
+import countSlice from "./countSlice";
 
 export default configureStore({
     reducer: {
     visibility: elementVisibility,
-    goods: goodsSlice
+    dataGoods: goodsSlice,
+    countGoods: countSlice,
     },
 });

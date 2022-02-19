@@ -16,7 +16,7 @@ function Footer(){
             <Link to="home"><i className="icon-home"></i></Link>
             <Link to="/about"><i className="icon-doc-text-inv"></i></Link>
             <Link to="/login"><i className="icon-user"></i></Link>
-            <p className="description">© Internet-shop «Petrovich™»</p>
+            <p className="footer-description">© Internet-shop «Petrovich™»</p>
         </div>
         <div className="contacts-block">
             <a href="/#"><i className="icon-mail"></i></a>
