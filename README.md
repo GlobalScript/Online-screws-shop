@@ -1,4 +1,4 @@
-# Pet Project - internet-shop
+# Pet Project - internet shop
 
 ## React js
 
