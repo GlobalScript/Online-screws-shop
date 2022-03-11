@@ -1,8 +1,7 @@
-# Pet Project
+# Pet Project - internet-shop
 
-## internet-shop
+## React js
 
-### React js
 ### Redux Toolkit
 ### React Router
 ### Sass
