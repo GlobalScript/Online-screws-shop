@@ -4,18 +4,21 @@ import ProductHeader from "./ProductHeader";
 import Footer from "./Footer";
 import {useSelector} from 'react-redux';
 import {useEffect, useState} from 'react';
+import Loader from "./Loader";
 
 function Layout(){
-    const [state, setState] = useState(false);
+    const [visible, setVisible] = useState(false);
     const {activeComponent} = useSelector(state => state.visibility);
+    const {status} = useSelector(state => state.dataGoods);
     useEffect(()=>{
-        setState(activeComponent);
+        setVisible(activeComponent);
     },[activeComponent]);
     return <>
-        {state && <Header/>} 
-        {state && <ProductHeader/>} 
-        <Outlet />
-        {state && <Footer/>}
+        {visible && <Header/>} 
+        {visible && <ProductHeader/>} 
+        {status == 'resolved' && <Outlet />} 
+        {status != 'resolved' && <Loader/>}
+        {visible && <Footer/>}
     </>
 }
 export default Layout;

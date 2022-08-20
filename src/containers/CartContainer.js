@@ -24,7 +24,9 @@ function CartContainer(){
        return previous}, {})));
   },[count, subPrice]); 
 function cartHandler(event){
-        event.preventDefault();
+        event.target.onselectstart = function() {
+          return false;
+        };
         const target = event.target;
         if(target.classList.contains('btn-add')) dispatch(add(target.dataset.cart));   
         if(target.classList.contains('btn-del')) dispatch(del(target.dataset.cart));           

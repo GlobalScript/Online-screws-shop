@@ -19,10 +19,10 @@ function Footer(){
             <p className="footer-description">© Internet-shop «Petrovich™»</p>
         </div>
         <div className="contacts-block">
-            <a href="/#"><i className="icon-mail"></i></a>
-            <a href="/#"><i className="icon-facebook"></i></a>
+            <a ><i className="icon-mail"></i></a>
+            <a ><i className="icon-facebook"></i></a>
             <a href="https://github.com/GlobalScript/react-screw-shop"><i className="icon-git"></i></a>
-            <a href="/#"><i className="icon-paper-plane"></i></a>
+            <a ><i className="icon-paper-plane"></i></a>
         </div>
         </div>
     )

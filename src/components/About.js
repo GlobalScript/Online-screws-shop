@@ -10,15 +10,14 @@ function About() {
 
     },[]);
     return <> 
-                <div className="banner-field"><h1>Pet Project</h1></div>
+                <div className="banner-field"><h1>React Project</h1></div>
                 <div className="about-container">
                 <ul>
                     <li>React js</li>
                     <li>Redux Toolkit</li>
-                    <li>React Router</li>
+                    <li>Axios</li>
                     <li>Sass</li>
                     <li>Lodash</li>
-                    <li><a href="https://github.com/GlobalScript/react-screw-shop">Git Hub</a></li>
                 </ul>
                 </div>
                 

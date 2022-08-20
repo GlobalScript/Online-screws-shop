@@ -6,7 +6,7 @@ import { unitProps } from '../store/dataSlice';
 
 function UnitList(props){
     const dispatch = useDispatch();
-    const {id, short, price, category, image0, description} = props;
+    const {id, short, price, image0, description} = props;
     const {active, count} = useSelector(state => state.countGoods);
     const navigate = useNavigate();
 function clickUnit() {

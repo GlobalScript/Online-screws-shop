@@ -1,16 +1,17 @@
 import {createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-export const fetchGoods = createAsyncThunk('goods/fetchGoods', async function(_, {rejectWithValue}){
-    try {
-        const response = await fetch('data.json');
-    if(!response.ok) throw new Error('Server error');
-        const data = await response.json();
-    return data;
+import axios from "axios";
+export const fetchGoods = createAsyncThunk('goods/fetchGoods', ()=>{
+    const response =   axios.get('http://localhost:3001/api/all-products')
+        .then(({data})=>{
+            return data;
+        })
+        .catch((e)=>{
+            console.log(e.message);
+            return [];
+        })
+            return response;
     }
-    catch(error) {
-       return rejectWithValue(error.message);
-    }
-});
+);
 const goodsSlice = createSlice({
     name: "goods",
     initialState: {
@@ -30,8 +31,10 @@ const goodsSlice = createSlice({
             state.error = null
         },
         [fetchGoods.fulfilled]: (state, action) => {
-            state.status = "resolved";
-            state.goods = action.payload;
+            if(action.payload[0]){
+                state.goods = action.payload;
+                state.status = "resolved";
+            }
         },
         [fetchGoods.rejected]: (state, action) => {
             state.status = 'rejected';

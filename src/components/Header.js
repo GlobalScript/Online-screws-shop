@@ -6,6 +6,8 @@ import { categories, hiddenSort } from "../store/elementVisibilitySlice";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { hiddenComponent } from "../store/elementVisibilitySlice";
+import { goodsState } from "../store/dataSlice";
+import { fetchGoods } from "../store/dataSlice";
  
 const headLinkActive = ({isActive}) => isActive ? 'active-header' : '';
 const cartActive = ({isActive}) => isActive ? 'active-cart' : '';
@@ -13,10 +15,12 @@ const cartActive = ({isActive}) => isActive ? 'active-cart' : '';
 function Header(){
       const navigate = useNavigate();
       const dispatch = useDispatch();
+      const {status} = useSelector(goodsState);
       const {count} = useSelector(state => state.countGoods);
       useEffect(()=> {
+        !status && dispatch(fetchGoods());
         dispatch(hiddenComponent(true));
-      },[]);
+      },[status]);
 function categoryClick(event) {
       const target = event.target.dataset.category;
       switch(target) {
@@ -62,9 +66,15 @@ function navigateClick(event) {
               }, 0) }</h6>
       </div> 
       </div> }
-    <NavLink to="/cart" className={cartActive}><i className='icon-basket' onClick={navigateClick}></i></NavLink>
-    <NavLink to="/search" className={cartActive}><i className='icon-search'onClick={navigateClick} ></i></NavLink>
-    <NavLink to="/login" className={cartActive}><i className='icon-user' onClick={navigateClick}></i></NavLink>
+              <NavLink to="/cart" className={cartActive}>
+                <i className='icon-basket' onClick={navigateClick}></i>
+              </NavLink>
+              <NavLink to="/search" className={cartActive}>
+                <i className='icon-search'onClick={navigateClick}></i>
+              </NavLink>
+              <NavLink to="/login" className={cartActive}>
+                <i className='icon-user' onClick={navigateClick}></i>
+              </NavLink>
     </div>
     </header>
     )

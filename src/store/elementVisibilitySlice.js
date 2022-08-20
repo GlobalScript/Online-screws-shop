@@ -9,7 +9,9 @@ const elementVisibility = createSlice({
         activeSearch: true,
         selectUnit: "mosaic",
         category: null,
-        selectBy: ""
+        selectBy: "",
+        currentPage: 1,
+        numActivePage: 0,
     },
     reducers: {
         hiddenComponent(state, action) {
@@ -29,6 +31,12 @@ const elementVisibility = createSlice({
         },
         searchPage(state, action) {
             state.activeSearch = action.payload;
+        },
+        numberCurrentPage(state, action) {
+            state.currentPage = action.payload;
+        },
+        setActivePage(state, action){
+            state.numActivePage = action.payload;
         }
     }
 });
@@ -40,5 +48,7 @@ export const {hiddenComponent,
                     selectCategory,
                     selectSort,
                     searchPage,
+                    numberCurrentPage,
+                    setActivePage
                 } = elementVisibility.actions;
 export default elementVisibility.reducer;
