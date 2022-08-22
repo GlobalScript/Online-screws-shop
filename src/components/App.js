@@ -9,6 +9,7 @@ import NotFoundPage from './NotFoundPage';
 import Home from './Home';
 import Layout from './Layout';
 import About from './About';
+import BuyForm from './BuyForm';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="single" element={<SingleContainer/>}  />
           <Route path="cart" element={<CartContainer/>}  />
           <Route path="about" element={<About/>}  />
+          <Route path="cart/buy" element={<BuyForm/>}  />
           <Route path="*" element={<NotFoundPage />} />
           </Route>
      </Routes>

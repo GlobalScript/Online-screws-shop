@@ -14,7 +14,6 @@ function inputBlur(event, item){
         } 
     }
 function change(event, item){
-    event.preventDefault();
     const inpVal = event.target.value;
         if(inpVal > 0 || inpVal == ""){
             dispatch(input({inpVal: +inpVal, unitID: item}));
@@ -80,7 +79,7 @@ function change(event, item){
                 </div>
                 <div className="checkout-page">
                 <a onClick={() => navigate(-1)}>Go Back</a>
-                <Link to="checkout" >Checkout</Link>
+                <Link to="buy" >Order</Link>
                 </div>
     </>
 }
