@@ -10,7 +10,7 @@ function About() {
 
     },[]);
     return <> 
-                <div className="banner-field"><h1>React Project</h1></div>
+                <div className="banner-field"><h1>SPA Project</h1></div>
                 <div className="about-container">
                 <ul>
                     <li>React js</li>

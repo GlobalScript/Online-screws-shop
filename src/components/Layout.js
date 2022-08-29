@@ -16,8 +16,8 @@ function Layout(){
     return <>
         {visible && <Header/>} 
         {visible && <ProductHeader/>} 
-        {status == 'resolved' && <Outlet />} 
-        {status != 'resolved' && <Loader/>}
+        {status === 'resolved' && <Outlet/>} 
+        {status !== 'resolved' && <Loader/>}
         {visible && <Footer/>}
     </>
 }

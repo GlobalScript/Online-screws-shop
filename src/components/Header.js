@@ -6,7 +6,6 @@ import { categories, hiddenSort } from "../store/elementVisibilitySlice";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { hiddenComponent } from "../store/elementVisibilitySlice";
-import { getLocalStorage } from "../store/countSlice";
 import { goodsState } from "../store/dataSlice";
 import { fetchGoods } from "../store/dataSlice";
  
@@ -20,7 +19,6 @@ function Header(){
       const {count} = useSelector(state => state.countGoods);
       useEffect(()=> {
         !status && dispatch(fetchGoods());
-        dispatch(getLocalStorage());
         dispatch(hiddenComponent(true));
       },[status]);
 function categoryClick(event) {

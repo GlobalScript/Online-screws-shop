@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { add, del, countState } from '../store/countSlice';
+import { countState, addFirstThunk, delThunk   } from '../store/cartSlice';
 import Slider from "./Slider";
 
 function Single({unit}) {
+    const {statusCart} = useSelector(state => state.countGoods)
     const {id, short, price, image0, image1, image2, image3, image4, description} = unit;
     const [srcImage, setSrcImage] = useState(image0);
     const {active, count} = useSelector(countState);
@@ -17,16 +18,16 @@ function clickImage(event) {
 function cartHandler(event){
         event.preventDefault();
         const target = event.target;
-        if(target.classList.contains('btn-add')) dispatch(add(target.dataset.cart));   
-        if(target.classList.contains('btn-del')) dispatch(del(target.dataset.cart));         
+        if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart));   
+        if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));         
 }
-    return (
-        <div className="single-container">
+    return <>    
+        <div className={ statusCart ? "single-container" : "single-container clearness"}>
         <div className="single-left-content">
                 <div className="single-img">
                     <img src={srcImage} />
                     <div className="cart-status">
-           {active[id] && <div className='status-ok'><h6>{count[id]}</h6></div> }
+                    {active[id] && <div className='status-ok'><h6>{count[id]}</h6></div> }
                 </div>
                 </div>
                 <Slider>
@@ -51,8 +52,8 @@ function cartHandler(event){
             </div>
             <button className="single-go-back" onClick={() => navigate(-1)}>Go Back</button>
         </div>
-    </div>
-    )
+        </div>
+    </>
 }
 
 export default Single;
