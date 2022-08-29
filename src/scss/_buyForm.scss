@@ -1,0 +1,66 @@
+.buy-form-container{
+    min-height: calc(100vh - 360px);
+    display: flex;
+    justify-content: center;
+}
+.text-field {
+    margin: 2rem;
+  }
+  .text-field__label {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .text-field__input {
+    display: block;
+    width: 250px;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+.text-field__input:disabled,
+.text-field__input[readonly] {
+  background-color: #f5f5f5;
+  opacity: 1;
+}
+.text-field__input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+  }
+  .text-field__input::placeholder {
+    color: #212529;
+    opacity: 0.4;
+  }
+.buy-submit{
+    @include styleButton(22px);
+    box-shadow: 0 1px 0 $thematColor;
+    cursor: pointer;
+    margin: 20px;
+    text-align: center;
+&:hover {
+    @include hoverAnchor;
+    }
+}
+.buy-form-container small {
+  color: $thematColor;
+}
+.buy-submit-disabled {
+  @include styleButton(22px);
+  cursor: default;
+  box-shadow: 0 1px 0 black;
+  margin: 20px;
+  text-align: center;
+  opacity: 0.5;
+  
+}

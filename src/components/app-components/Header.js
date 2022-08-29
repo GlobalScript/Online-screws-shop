@@ -1,14 +1,13 @@
 
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { categories, hiddenSort } from "../store/elementVisibilitySlice";
+import { categories, hiddenSort } from "../../store/elementVisibilitySlice";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { hiddenComponent } from "../store/elementVisibilitySlice";
-import { getLocalStorage } from "../store/countSlice";
-import { goodsState } from "../store/dataSlice";
-import { fetchGoods } from "../store/dataSlice";
+import { hiddenComponent } from "../../store/elementVisibilitySlice";
+import { goodsState } from "../../store/dataSlice";
+import { fetchGoods } from "../../store/dataSlice";
  
 const headLinkActive = ({isActive}) => isActive ? 'active-header' : '';
 const cartActive = ({isActive}) => isActive ? 'active-cart' : '';
@@ -20,7 +19,6 @@ function Header(){
       const {count} = useSelector(state => state.countGoods);
       useEffect(()=> {
         !status && dispatch(fetchGoods());
-        dispatch(getLocalStorage());
         dispatch(hiddenComponent(true));
       },[status]);
 function categoryClick(event) {

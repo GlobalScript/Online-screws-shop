@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch} from "react-redux";
-import { hiddenComponent, hiddenSort} from "../store/elementVisibilitySlice";
+import { hiddenComponent, hiddenSort} from "../../store/elementVisibilitySlice";
 
 function About() {
     const dispatch = useDispatch();
@@ -10,7 +10,7 @@ function About() {
 
     },[]);
     return <> 
-                <div className="banner-field"><h1>React Project</h1></div>
+                <div className="banner-field"><h1>SPA Project</h1></div>
                 <div className="about-container">
                 <ul>
                     <li>React js</li>

@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
-import Cart from '../components/Cart';
+import Cart from '../components/cart-components/Cart';
 import { hiddenComponent, hiddenSort } from '../store/elementVisibilitySlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {countState, add, del, clear, sumAllGoods} from '../store/countSlice';
+import {countState,
+        sumAllGoods,
+        addFirstThunk,
+        delThunk,
+        removeProductThunk } from '../store/cartSlice';                     
 import {goodsState} from '../store/dataSlice';
-
 
 function CartContainer(){
       const dispatch = useDispatch();
@@ -17,10 +20,10 @@ function CartContainer(){
           return previous;
         },{});
   useEffect(() => {
-    dispatch(hiddenComponent(true));
-    dispatch(hiddenSort(true));
-    dispatch(sumAllGoods(Object.keys(count).reduce((previous, item) => {
-      previous[item] = reindexGoods[item].price;
+        dispatch(hiddenComponent(true));
+        dispatch(hiddenSort(true));
+        dispatch(sumAllGoods(Object.keys(count).reduce((previous, item) => {
+        previous[item] = reindexGoods[item].price;
        return previous}, {})));
   },[count, subPrice]); 
 function cartHandler(event){
@@ -28,13 +31,13 @@ function cartHandler(event){
           return false;
         };
         const target = event.target;
-        if(target.classList.contains('btn-add')) dispatch(add(target.dataset.cart));   
-        if(target.classList.contains('btn-del')) dispatch(del(target.dataset.cart));           
-        if(target.classList.contains('btn-clear')) dispatch(clear(target.dataset.cart));         
+        if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart)); 
+        if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));          
+        if(target.classList.contains('btn-clear')) dispatch(removeProductThunk(target.dataset.cart));         
 }
-    return (
+    return <>
         <div className="cart-wrapper" onClick={cartHandler}>
-        {(Object.keys(count).length != 0) ? 
+        {(Object.keys(count).length !== 0) ? 
         <Cart goods={reindexGoods} count={count} active={active} /> :
         <div className='cart-container-empty'>
           <div className="banner-field">
@@ -45,7 +48,7 @@ function cartHandler(event){
           </div>
           </div> } 
         </div>
-    )
+        </>
 }
 
 

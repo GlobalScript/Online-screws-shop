@@ -2,19 +2,17 @@
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { goodsState } from '../store/dataSlice';
-import { 
-      hiddenComponent,
-      hiddenSort,
-      numberCurrentPage,
-      setActivePage
-   } from '../store/elementVisibilitySlice';
-import { add, del } from '../store/countSlice';
+import { hiddenComponent,
+          hiddenSort,
+          numberCurrentPage,
+          setActivePage } from '../store/elementVisibilitySlice';
+import { addFirstThunk, delThunk } from '../store/cartSlice';
 import {orderBy} from 'lodash';
-import Unit from "../components/Unit";
-import UnitList from "../components/UnitList";
-import Banner from "../components/Banner";
-import NotFoundPage from '../components/NotFoundPage';
-import Pagination from '../components/Pagination';
+import Unit from "../components/product-components/Unit";
+import UnitList from "../components/product-components/UnitList";
+import Banner from "../components/app-components/Banner";
+import NotFoundPage from '../components/pages/NotFoundPage';
+import Pagination from '../components/product-components/Pagination';
 
 function sortBy(goods, category, selectBy) {
       let categoriesFilter = "";
@@ -34,6 +32,7 @@ function sortBy(goods, category, selectBy) {
         }
   };
 function UnitContainer(){
+      const {statusCart} = useSelector(state => state.countGoods)
       const {selectUnit, category, selectBy, currentPage} = useSelector(state => state.visibility);
       const {goods, status} = useSelector(goodsState);
       const [items, setItems] = useState([]);
@@ -48,8 +47,8 @@ useEffect(() => {
   function cartHandler(event){
         event.preventDefault();
         const target = event.target;
-        if(target.classList.contains('btn-add')) dispatch(add(target.dataset.cart));   
-        if(target.classList.contains('btn-del')) dispatch(del(target.dataset.cart));         
+        if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart));
+        if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));         
 }
   const itemsPerPage = 4;
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -57,12 +56,12 @@ useEffect(() => {
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   const paginate = pageNumber =>{
     dispatch(numberCurrentPage(pageNumber));
-    window.scrollTo(0, 250)
+   if(selectUnit === "list") window.scrollTo(0, 250)
   } 
-    return (
+    return <>
+                  {status === "resolved" && <Banner />}
               <div className="field-product" onClick={cartHandler}> 
-                  {status === "rejected" && <NotFoundPage />}
-                  {status === "resolved" && <Banner />}          
+                  {status === "rejected" && <NotFoundPage />}       
               {selectUnit === "mosaic" && <div className="unit-container">
                   {currentItems.map(item => <Unit key={item.id} {...item} />)}</div>}         
               {selectUnit === "list" && <div className="unit-container">
@@ -72,6 +71,6 @@ useEffect(() => {
               totalItems={items.length}
               paginate={paginate} />
             </div>
-    ) 
+            </> 
 }
 export default UnitContainer;

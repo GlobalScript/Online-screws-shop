@@ -1,22 +1,23 @@
 import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { input, del, countState } from '../store/countSlice';
-import { unitProps} from '../store/dataSlice';
+import { countState, delThunk, inputValueThunk } from '../../store/cartSlice';
+import { unitProps} from '../../store/dataSlice';
 
 function Cart({goods, count}) {
+    const {statusCart} = useSelector(state => state.countGoods)
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {subPrice, totalPrice} = useSelector(countState);
 function inputBlur(event, item){
     const inpVal = event.target.value;
         if(inpVal <= 0 || inpVal == ""){
-            dispatch(del(item));
+            dispatch(delThunk(item));
         } 
     }
 function change(event, item){
     const inpVal = event.target.value;
         if(inpVal > 0 || inpVal == ""){
-            dispatch(input({inpVal: +inpVal, unitID: item}));
+            dispatch(inputValueThunk({inpVal: +inpVal, product_id: item}));
         }
     }
     function clickImageUnit(itemID) {
@@ -25,6 +26,7 @@ function change(event, item){
   }
     return <>
     <div className="banner-field"><h1>Cart</h1></div>
+    <div className={statusCart ? '' : 'clearness'}>
 <table className="cart-table">
                   <thead>
                     <tr className="head-team">
@@ -65,6 +67,7 @@ function change(event, item){
                     ))}
                   </tbody>
                 </table>
+                </div>
                 <div className="product-count">
                     <h5>Total quantity</h5>
                     <h5>{Object.keys(count).reduce((previous, item) => {
@@ -81,6 +84,7 @@ function change(event, item){
                 <a onClick={() => navigate(-1)}>Go Back</a>
                 <Link to="buy" >Order</Link>
                 </div>
+               
     </>
 }
 

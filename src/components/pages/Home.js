@@ -1,10 +1,10 @@
-import screws from "../assets/screws.png";
-import bolts from "../assets/bolts.jpg";
-import fittings from "../assets/fittings.jpg";
-import Banner from "./Banner";
+import screws from "../../assets/screws.png";
+import bolts from "../../assets/bolts.jpg";
+import fittings from "../../assets/fittings.jpg";
+import Banner from "../app-components/Banner";
 import {useEffect} from 'react';
 import { useDispatch } from "react-redux";
-import { categories, hiddenSort, hiddenComponent } from "../store/elementVisibilitySlice";
+import { categories, hiddenSort, hiddenComponent } from "../../store/elementVisibilitySlice";
 import { useNavigate } from "react-router-dom";
 
 function Home() {

@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate, Link} from 'react-router-dom';
-import { unitProps } from '../store/dataSlice';
-
-
+import { unitProps } from '../../store/dataSlice';
 
 function UnitList(props){
     const dispatch = useDispatch();
@@ -13,7 +11,6 @@ function clickUnit() {
     dispatch(unitProps(props));
     navigate('../single', {replace: false});
 }
-
     return <>
      <div className="unit-list-container">
         <div className="unit-list-left-content">

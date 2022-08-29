@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate, Link} from 'react-router-dom';
-import { unitProps } from '../store/dataSlice';
+import { unitProps } from '../../store/dataSlice';
 
 function Unit(props){
     const dispatch = useDispatch();
