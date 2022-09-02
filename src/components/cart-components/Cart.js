@@ -1,7 +1,7 @@
 import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { countState, delThunk, inputValueThunk } from '../store/cartSlice';
-import { unitProps} from '../store/dataSlice';
+import { countState, delThunk, inputValueThunk } from '../../store/cartSlice';
+import { unitProps} from '../../store/dataSlice';
 
 function Cart({goods, count}) {
     const {statusCart} = useSelector(state => state.countGoods)

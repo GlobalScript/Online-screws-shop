@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {selectCategory, hiddenSort, selectSort} from '../store/elementVisibilitySlice';
+import {selectCategory, hiddenSort, selectSort} from '../../store/elementVisibilitySlice';
 import { useState, useEffect } from 'react';
 
 function ProductHeader(){

@@ -8,11 +8,11 @@ import { hiddenComponent,
           setActivePage } from '../store/elementVisibilitySlice';
 import { addFirstThunk, delThunk } from '../store/cartSlice';
 import {orderBy} from 'lodash';
-import Unit from "../components/Unit";
-import UnitList from "../components/UnitList";
-import Banner from "../components/Banner";
-import NotFoundPage from '../components/NotFoundPage';
-import Pagination from '../components/Pagination';
+import Unit from "../components/product-components/Unit";
+import UnitList from "../components/product-components/UnitList";
+import Banner from "../components/app-components/Banner";
+import NotFoundPage from '../components/pages/NotFoundPage';
+import Pagination from '../components/product-components/Pagination';
 
 function sortBy(goods, category, selectBy) {
       let categoriesFilter = "";
@@ -56,11 +56,11 @@ useEffect(() => {
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   const paginate = pageNumber =>{
     dispatch(numberCurrentPage(pageNumber));
-    window.scrollTo(0, 250)
+   if(selectUnit === "list") window.scrollTo(0, 250)
   } 
     return <>
                   {status === "resolved" && <Banner />}
-              <div className={statusCart ? "field-product" : "field-product clearness" } onClick={cartHandler}> 
+              <div className="field-product" onClick={cartHandler}> 
                   {status === "rejected" && <NotFoundPage />}       
               {selectUnit === "mosaic" && <div className="unit-container">
                   {currentItems.map(item => <Unit key={item.id} {...item} />)}</div>}         

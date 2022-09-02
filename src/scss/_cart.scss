@@ -78,7 +78,7 @@
     display: block;
     margin-bottom: 100px;
 }
-.checkout-page a,  {
+.checkout-page a  {
     @include styleAnchor(12px);
     box-shadow: 0 1px 0 $thematColor;
     cursor: pointer;

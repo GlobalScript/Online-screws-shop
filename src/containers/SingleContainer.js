@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react';
 import {hiddenSort, hiddenComponent} from '../store/elementVisibilitySlice';
-import Single from "../components/Single";
+import Single from "../components/product-components/Single";
 
 function SingleProduct() {
     const navigate = useNavigate();

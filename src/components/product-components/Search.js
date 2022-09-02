@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGoods, goodsState } from "../store/dataSlice";
-import { hiddenComponent } from "../store/elementVisibilitySlice";
-import { addFirstThunk, delThunk } from '../store/cartSlice';
+import { fetchGoods, goodsState } from "../../store/dataSlice";
+import { hiddenComponent } from "../../store/elementVisibilitySlice";
+import { addFirstThunk, delThunk } from '../../store/cartSlice';
 import Unit from "./Unit";
 import UnitList from "./UnitList";
 

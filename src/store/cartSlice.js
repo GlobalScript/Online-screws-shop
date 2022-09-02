@@ -189,6 +189,40 @@ export const getCartThunk = createAsyncThunk('/cart/getCartThunk', ()=>{
         }
 );
 
+export const orderThunk = createAsyncThunk('/cart/orderThunk', (order_form, {getState})=>{
+            if(Cookies.get('cart_id')){
+                const {countGoods} = getState(); 
+                const {first_name, last_name, phone_number} = order_form;
+                const data = {
+                        first_name,
+                        last_name,
+                        phone_number,
+                        user_buy: true,
+                        cart_id: Cookies.get('cart_id'),
+                        cart: JSON.stringify(
+                            {
+                                count: {...countGoods.count},
+                                active: {...countGoods.active}
+                            }),
+                    }
+    const response = axios.put(URL_API + '/add-cart', data,
+                    {
+                        headers:HEADERS
+                    })
+                    .then(({data})=>{
+                        Cookies.remove('cart_id')
+                        return {data};
+                    })
+                    .catch((e)=>{
+                        console.log(e.message);
+                        return {}
+                    })
+                    return response;
+            }
+            return {};
+    }
+);
+
 export const countSlice = createSlice({
     name: 'count_value',
     initialState:{
@@ -196,14 +230,16 @@ export const countSlice = createSlice({
         subPrice: {},
         totalPrice: 0,
         active: {},
-        all: {},
-        statusCart: false
+        statusCart: false,
+        orderNumber: "",
+        statusOrder: false,
     },
     reducers:{
         sumAllGoods:(state, action) => {
             const units = action.payload;
             Object.keys(state.count).map(item => state.subPrice[item] = state.count[item] * units[item]);
-            Object.keys(state.subPrice).reduce((previous, item) => { previous += state.subPrice[item]; return state.totalPrice = previous}, 0);
+            Object.keys(state.subPrice).reduce((previous, item) => {
+                 previous += state.subPrice[item]; return state.totalPrice = previous}, 0);
           }
     },
     extraReducers: {
@@ -224,7 +260,9 @@ export const countSlice = createSlice({
         },
         [getCartThunk.pending]: (state) => {
             state.statusCart = false;
-            state.statusCart = true;
+        },
+        [orderThunk.pending]: (state) => {
+            state.statusCart = false;
         },
         [addFirstThunk.fulfilled]: (state, action) => {
             if(action.payload){
@@ -236,7 +274,7 @@ export const countSlice = createSlice({
         },
         [addNextThunk.fulfilled]: (state, action) => {
             if(Object.keys(action.payload).length){
-                const cart = JSON.parse(action.payload.data);
+                const cart = JSON.parse(action.payload.data.cart);
                 state.count = cart.count; 
                 state.active = cart.active;
                 state.statusCart = true;
@@ -244,7 +282,7 @@ export const countSlice = createSlice({
         },
         [inputValueThunk.fulfilled]: (state, action) => {
             if(Object.keys(action.payload).length){
-                const cart = JSON.parse(action.payload.data);
+                const cart = JSON.parse(action.payload.data.cart);
                 state.count = cart.count; 
                 state.active = cart.active;
                 state.statusCart = true;
@@ -252,7 +290,7 @@ export const countSlice = createSlice({
         },
         [delThunk.fulfilled]: (state, action) => {
             if(Object.keys(action.payload).length){
-                const cart = JSON.parse(action.payload.data);
+                const cart = JSON.parse(action.payload.data.cart);
                 state.count = cart.count; 
                 state.active = cart.active;
                 Object.keys(state.count).map(()=> {
@@ -263,7 +301,7 @@ export const countSlice = createSlice({
         },
         [removeProductThunk.fulfilled]: (state, action) => {
             if(Object.keys(action.payload).length){
-                const cart = JSON.parse(action.payload.data);
+                const cart = JSON.parse(action.payload.data.cart);
                 state.count = cart.count; 
                 state.active = cart.active;
                 Object.keys(state.count).map(()=> {
@@ -278,6 +316,17 @@ export const countSlice = createSlice({
                 state.count = cart.count; 
                 state.active = cart.active;
                 state.statusCart = true;
+            }
+        },
+        [orderThunk.fulfilled]: (state, action) => {
+            if(Object.keys(action.payload).length){
+                const num = action.payload.data.phone_number
+                state.orderNumber = num.match(/\d{9}/g);
+                state.count = {};
+                state.active = {};
+                state.subPrice = {};
+                state.totalPrice = 0;
+                state.statusOrder = true;
             }
         }
     } 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { countState, addFirstThunk, delThunk   } from '../store/cartSlice';
+import { countState, addFirstThunk, delThunk   } from '../../store/cartSlice';
 import Slider from "./Slider";
 
 function Single({unit}) {

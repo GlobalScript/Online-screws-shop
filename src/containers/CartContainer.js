@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Cart from '../components/Cart';
+import Cart from '../components/cart-components/Cart';
 import { hiddenComponent, hiddenSort } from '../store/elementVisibilitySlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

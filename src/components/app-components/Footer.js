@@ -1,7 +1,7 @@
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {categories, hiddenSort} from '../store/elementVisibilitySlice';
+import {categories, hiddenSort} from '../../store/elementVisibilitySlice';
 
 function Footer(){
     const dispatch = useDispatch();
