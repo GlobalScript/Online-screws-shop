@@ -1,10 +1,7 @@
-import screws from "../assets/screws.png";
-import bolts from "../assets/bolts.jpg";
-import fittings from "../assets/fittings.jpg";
-import Banner from "./Banner";
+import Banner from "../app-components/Banner";
 import {useEffect} from 'react';
 import { useDispatch } from "react-redux";
-import { categories, hiddenSort, hiddenComponent } from "../store/elementVisibilitySlice";
+import { categories, hiddenSort, hiddenComponent } from "../../store/elementVisibilitySlice";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
@@ -32,15 +29,15 @@ function categoryClick(event) {
         <div className="start-categories" onClick={categoryClick}>
             <div className="screws" >
               <h3>Srews</h3>
-              <img src={screws} alt="screws" data-category="screws"/>
+              <img src="/assets/screws.png" alt="screws" data-category="screws"/>
             </div>
             <div className="bolts">
               <h3>Bolts Nuts</h3>
-              <img src={bolts} alt="bolts" data-category="bolts-nuts"/>
+              <img src="/assets/bolts.jpg" alt="bolts" data-category="bolts-nuts"/>
             </div>
             <div className="fittings">
               <h3>Fittings</h3>
-              <img src={fittings} alt="fitting" data-category="fittings"/>
+              <img src="/assets/fittings.jpg" alt="fitting" data-category="fittings"/>
             </div>
         </div>
     </div>

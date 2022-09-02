@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import ProductHeader from "./ProductHeader";
-import Footer from "./Footer";
+import Header from "../app-components/Header";
+import ProductHeader from "../product-components/ProductHeader";
+import Footer from "../app-components/Footer";
 import {useSelector} from 'react-redux';
 import {useEffect, useState} from 'react';
-import Loader from "./Loader";
+import Loader from "../app-components/Loader";
 
 function Layout(){
     const [visible, setVisible] = useState(false);
@@ -13,7 +13,7 @@ function Layout(){
     useEffect(()=>{
         setVisible(activeComponent);
     },[activeComponent]);
-    return <>
+return <>
         {visible && <Header/>} 
         {visible && <ProductHeader/>} 
         {status === 'resolved' && <Outlet/>} 

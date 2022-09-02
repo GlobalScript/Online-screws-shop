@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { setActivePage } from '../store/elementVisibilitySlice';
+import { setActivePage } from '../../store/elementVisibilitySlice';
 
 function Pagination({ itemsPerPage, totalItems, paginate }) {
       const {numActivePage} = useSelector(state => state.visibility);

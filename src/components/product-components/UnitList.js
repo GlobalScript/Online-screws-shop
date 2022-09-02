@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate, Link} from 'react-router-dom';
-import { unitProps } from '../store/dataSlice';
+import { unitProps } from '../../store/dataSlice';
 
 function UnitList(props){
     const dispatch = useDispatch();
     const {id, short, price, image0, description} = props;
-    const {active, count} = useSelector(state => state.countGoods);
+    const {active, count, statusCart} = useSelector(state => state.countGoods);
     const navigate = useNavigate();
 function clickUnit() {
     dispatch(unitProps(props));
@@ -18,11 +18,12 @@ function clickUnit() {
                 <img className="card-img" src={image0} alt="image" onClick={clickUnit}/>
                         <div className="cart-status">
                 {active[id] && <div className='status-ok'><h6>{count[id]}</h6></div> }
-                <div className="unit-list-cart-bar">
+                {statusCart && <div className="unit-list-cart-bar">
                     <i className='icon-plus btn-add' data-cart={id} ></i>
                     <Link  to="/cart" className='icon-basket'></Link>
                     <i className='icon-minus btn-del' data-cart={id}></i>
-                </div>
+                </div>}
+                {!statusCart && <div className="unit-list-cart-bar"><div className="lds-dual-ring"></div></div>}
                 </div>
                 </div>
         </div>

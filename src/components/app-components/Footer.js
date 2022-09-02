@@ -1,7 +1,6 @@
-import logo from "../assets/logo.png";
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {categories, hiddenSort} from '../store/elementVisibilitySlice';
+import {categories, hiddenSort} from '../../store/elementVisibilitySlice';
 
 function Footer(){
     const dispatch = useDispatch();
@@ -11,7 +10,7 @@ function Footer(){
         }
     return (
         <div className="footer-container">
-          <Link to="home"><img className="footer-logo" src={logo} onClick={navigateClick}/></Link>
+          <Link to="home"><img className="footer-logo" src="/assets/logo.png" onClick={navigateClick}/></Link>
           <div className="nav-block" onClick={navigateClick}>
             <Link to="home"><i className="icon-home"></i></Link>
             <Link to="/about"><i className="icon-doc-text-inv"></i></Link>

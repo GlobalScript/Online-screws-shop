@@ -78,7 +78,7 @@
     display: block;
     margin-bottom: 100px;
 }
-.checkout-page a,  {
+.checkout-page a  {
     @include styleAnchor(12px);
     box-shadow: 0 1px 0 $thematColor;
     cursor: pointer;
@@ -100,4 +100,11 @@
 &:hover {
     @include hoverAnchor;
     }
+}
+.cart-banner-field .banner-field {
+   display: flex;
+   justify-content: center;
+}
+.cart-banner-field .lds-dual-ring {
+    margin-top: 15px;
 }

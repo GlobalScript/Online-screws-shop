@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch} from "react-redux";
-import { hiddenComponent, hiddenSort} from "../store/elementVisibilitySlice";
+import { hiddenComponent, hiddenSort} from "../../store/elementVisibilitySlice";
 
 function About() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(hiddenComponent(true));
         dispatch(hiddenSort(true));
-
     },[]);
     return <> 
                 <div className="banner-field"><h1>SPA Project</h1></div>

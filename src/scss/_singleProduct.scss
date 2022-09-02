@@ -42,7 +42,7 @@
   }
   .single-go-back {
     @include styleButton(18px);
-    margin: 10px auto;
+    margin: 30px auto;
 &:hover {
   color: $thematColor;
 }

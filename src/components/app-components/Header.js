@@ -1,13 +1,12 @@
 
-import logo from "../assets/logo.png";
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { categories, hiddenSort } from "../store/elementVisibilitySlice";
+import { categories, hiddenSort } from "../../store/elementVisibilitySlice";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { hiddenComponent } from "../store/elementVisibilitySlice";
-import { goodsState } from "../store/dataSlice";
-import { fetchGoods } from "../store/dataSlice";
+import { hiddenComponent } from "../../store/elementVisibilitySlice";
+import { goodsState, fetchGoodsThunk } from "../../store/dataSlice";
+import { removeEmptyProductThunk, getCartThunk } from "../../store/cartSlice";
  
 const headLinkActive = ({isActive}) => isActive ? 'active-header' : '';
 const cartActive = ({isActive}) => isActive ? 'active-cart' : '';
@@ -18,7 +17,9 @@ function Header(){
       const {status} = useSelector(goodsState);
       const {count} = useSelector(state => state.countGoods);
       useEffect(()=> {
-        !status && dispatch(fetchGoods());
+        !status && dispatch(getCartThunk());
+        !status && dispatch(fetchGoodsThunk())
+        dispatch(removeEmptyProductThunk())
         dispatch(hiddenComponent(true));
       },[status]);
 function categoryClick(event) {
@@ -42,7 +43,7 @@ function navigateClick(event) {
     return (
         <header>
         <div className="wrap-logo">
-          <NavLink to="/home" onClick={navigateClick}><img src={logo} alt="logo"/></NavLink>
+          <NavLink to="/home" onClick={navigateClick}><img src="/assets/logo.png" alt="logo"/></NavLink>
         </div>
     <nav>
       <NavLink to="/home" className={headLinkActive} onClick={navigateClick}>Home</NavLink>

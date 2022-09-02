@@ -6,16 +6,16 @@ function Slider({children}){
     const [pages, setPages] = useState([]);
     const [offset, setOffset] = useState(0);
   function hendleLeftClick() {
-    setOffset((currentofset)=> {
-        const newOffset = currentofset + PAGE_WIDTH;
-        return Math.min(newOffset, 0);
+        setOffset((currentofset)=> {
+            const newOffset = currentofset + PAGE_WIDTH;
+            return Math.min(newOffset, 0);
       });
   }
   function hendleRightClick(){
       setOffset((currentofset)=> {
-        const newOffset = currentofset - PAGE_WIDTH;
-        const maxOffset = -(PAGE_WIDTH * (pages.length-3));
-        return Math.max(newOffset, maxOffset);
+            const newOffset = currentofset - PAGE_WIDTH;
+            const maxOffset = -(PAGE_WIDTH * (pages.length-3));
+            return Math.max(newOffset, maxOffset);
       });
   }
     useEffect(()=>{
