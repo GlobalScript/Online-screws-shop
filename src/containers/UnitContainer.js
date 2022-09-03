@@ -11,7 +11,6 @@ import {orderBy} from 'lodash';
 import Unit from "../components/product-components/Unit";
 import UnitList from "../components/product-components/UnitList";
 import Banner from "../components/app-components/Banner";
-import NotFoundPage from '../components/pages/NotFoundPage';
 import Pagination from '../components/product-components/Pagination';
 
 function sortBy(goods, category, selectBy) {
@@ -32,7 +31,6 @@ function sortBy(goods, category, selectBy) {
         }
   };
 function UnitContainer(){
-      const {statusCart} = useSelector(state => state.countGoods)
       const {selectUnit, category, selectBy, currentPage} = useSelector(state => state.visibility);
       const {goods, status} = useSelector(goodsState);
       const [items, setItems] = useState([]);
@@ -61,7 +59,6 @@ useEffect(() => {
     return <>
                   {status === "resolved" && <Banner />}
               <div className="field-product" onClick={cartHandler}> 
-                  {status === "rejected" && <NotFoundPage />}       
               {selectUnit === "mosaic" && <div className="unit-container">
                   {currentItems.map(item => <Unit key={item.id} {...item} />)}</div>}         
               {selectUnit === "list" && <div className="unit-container">

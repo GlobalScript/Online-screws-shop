@@ -13,7 +13,7 @@ function Layout(){
     useEffect(()=>{
         setVisible(activeComponent);
     },[activeComponent]);
-    return <>
+return <>
         {visible && <Header/>} 
         {visible && <ProductHeader/>} 
         {status === 'resolved' && <Outlet/>} 

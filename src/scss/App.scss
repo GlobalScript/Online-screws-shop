@@ -17,7 +17,7 @@
 @import 'pagination';
 @import 'buyForm';
 @import 'successMessage';
-
+@import 'authorization';
 
 *{
   margin: 0;
@@ -27,6 +27,4 @@ html, body {
   font-family: Verdana, Helvetica, Arial, sans-serif;
   color: #444444;
   }
-  .clearness{
-    opacity: 0.3;
-  }
+  

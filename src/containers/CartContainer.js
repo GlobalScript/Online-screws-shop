@@ -7,49 +7,42 @@ import {countState,
         sumAllGoods,
         addFirstThunk,
         delThunk,
-        removeProductThunk } from '../store/cartSlice';                     
-import {goodsState} from '../store/dataSlice';
+        removeProductThunk} from '../store/cartSlice';                     
 
 function CartContainer(){
       const dispatch = useDispatch();
       const navigate = useNavigate();
-      const {goods} = useSelector(goodsState);
-      const {count, active, subPrice} = useSelector(countState);
-      const reindexGoods = goods.reduce((previous, item) => {
-          previous[item.id] = item;
-          return previous;
-        },{});
+      const {count, active, subPrice, reindexGoods} = useSelector(countState);
   useEffect(() => {
+        dispatch(sumAllGoods(Object.keys(count).reduce((previous, item) => {
+            if(reindexGoods[item]) previous[item] = reindexGoods[item]?.price;
+        return previous}, {})));
         dispatch(hiddenComponent(true));
         dispatch(hiddenSort(true));
-        dispatch(sumAllGoods(Object.keys(count).reduce((previous, item) => {
-        previous[item] = reindexGoods[item].price;
-       return previous}, {})));
   },[count, subPrice]); 
 function cartHandler(event){
         event.target.onselectstart = function() {
           return false;
         };
         const target = event.target;
-        if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart)); 
-        if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));          
-        if(target.classList.contains('btn-clear')) dispatch(removeProductThunk(target.dataset.cart));         
-}
+          if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart)); 
+          if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));          
+          if(target.classList.contains('btn-clear')) dispatch(removeProductThunk(target.dataset.cart));         
+  }
     return <>
         <div className="cart-wrapper" onClick={cartHandler}>
-        {(Object.keys(count).length !== 0) ? 
-        <Cart goods={reindexGoods} count={count} active={active} /> :
-        <div className='cart-container-empty'>
-          <div className="banner-field">
-            <h1>Empty baskets</h1>
-          </div>
-          <div className='cart-container-go-back'>
+           { (Object.keys(count).length !== 0) ? 
+              <Cart goods={reindexGoods} count={count} active={active} /> :
+              <div className='cart-container-empty'>
+                <div className="banner-field">
+                  <h1>Empty baskets</h1>
+                </div>
+              <div className='cart-container-go-back'>
             <a onClick={() => navigate(-1)}>Go Back</a>
           </div>
           </div> } 
         </div>
         </>
 }
-
 
 export default CartContainer;

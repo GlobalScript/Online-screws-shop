@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const elementVisibility = createSlice({
     name: "visibility",
     initialState: {

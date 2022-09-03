@@ -101,3 +101,10 @@
     @include hoverAnchor;
     }
 }
+.cart-banner-field .banner-field {
+   display: flex;
+   justify-content: center;
+}
+.cart-banner-field .lds-dual-ring {
+    margin-top: 15px;
+}

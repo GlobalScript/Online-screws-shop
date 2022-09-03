@@ -7,7 +7,6 @@ function About() {
     useEffect(() => {
         dispatch(hiddenComponent(true));
         dispatch(hiddenSort(true));
-
     },[]);
     return <> 
                 <div className="banner-field"><h1>SPA Project</h1></div>

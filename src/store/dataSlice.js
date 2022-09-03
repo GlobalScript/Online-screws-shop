@@ -1,12 +1,10 @@
 import {createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { URL_API } from "../config/config";
+import { URL_API } from "../config";
 import axios from "axios";
-import { getCartThunk } from "./cartSlice";
 
-export const fetchGoods = createAsyncThunk('goods/fetchGoods', (_, {dispatch})=>{
+export const fetchGoodsThunk = createAsyncThunk('goods/fetchGoodsThunk', ()=>{
     const response =   axios.get(URL_API + '/all-products')
         .then(({data})=>{
-            dispatch(getCartThunk());
             return data;
         })
         .catch((e)=>{
@@ -31,17 +29,17 @@ const goodsSlice = createSlice({
             },
         },
         extraReducers: {
-            [fetchGoods.pending]: (state) => {
+            [fetchGoodsThunk.pending]: (state) => {
                 state.status = "loading";
                 state.error = null
             },
-            [fetchGoods.fulfilled]: (state, action) => {
+            [fetchGoodsThunk.fulfilled]: (state, action) => {
                 if(action.payload[0]){
                     state.goods = action.payload;
                     state.status = "resolved";
                 }
             },
-            [fetchGoods.rejected]: (state, action) => {
+            [fetchGoodsThunk.rejected]: (state, action) => {
                 state.status = 'rejected';
                 state.error = action.payload;
             },

@@ -11,6 +11,7 @@ import Layout from '../layout/Layout';
 import About from '../pages/About';
 import BuyForm from '../cart-components/BuyForm';
 import SuccessMessage from '../cart-components/SuccessMessage';
+import Authorization from '../pages/Authorization';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="about" element={<About/>}  />
           <Route path="cart/buy" element={<BuyForm/>}  />
           <Route path="cart/buy/success" element={<SuccessMessage/>} />
+          <Route path="authorization" element={<Authorization/>} />
           <Route path="*" element={<NotFoundPage />} />
           </Route>
      </Routes>

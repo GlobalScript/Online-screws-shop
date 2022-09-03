@@ -1,8 +1,6 @@
-# Pet Project - internet shop
-
-## React js
-
-### Redux Toolkit
-### React Router
-### Sass
-### Lodash
+# SPA Project
+### .React js
+### .Redux Toolkit
+### .Axios
+### .Sass
+### .Lodash

@@ -6,7 +6,7 @@ function Unit(props){
     const dispatch = useDispatch();
     const {id, short, price, image0} = props;
     const navigate = useNavigate();
-    const {active, count} = useSelector(state => state.countGoods);
+    const {active, count, statusCart} = useSelector(state => state.countGoods);
 function clickUnit() {
     dispatch(unitProps(props));
     navigate('../single', {replace: false});
@@ -17,13 +17,14 @@ function clickUnit() {
             <div className="image-field">
                 <img className="card-img" src={image0} alt="image" onClick={clickUnit}/>
             <div className="cart-status">
-         {active[id] && <div className='status-ok'><h6>{count[id]}</h6></div> }
+                {active[id] && <div className='status-ok'><h6>{count[id]}</h6></div>}
             </div>
-            <div className="cart-bar">
+            {statusCart && <div className="cart-bar">
             <i className='icon-plus btn-add' data-cart={id} ></i>
             <Link  to="/cart" className='icon-basket'></Link>
             <i className='icon-minus btn-del' data-cart={id}></i>
-        </div>
+        </div> }
+        {!statusCart && <div className="cart-bar"><div className="lds-dual-ring"></div></div>}
         </div>
         <div className="product-short">
             <Link to="../single"> <h6>{short}</h6></Link>

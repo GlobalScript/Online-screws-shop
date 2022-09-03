@@ -5,10 +5,9 @@ import { countState, addFirstThunk, delThunk   } from '../../store/cartSlice';
 import Slider from "./Slider";
 
 function Single({unit}) {
-    const {statusCart} = useSelector(state => state.countGoods)
     const {id, short, price, image0, image1, image2, image3, image4, description} = unit;
     const [srcImage, setSrcImage] = useState(image0);
-    const {active, count} = useSelector(countState);
+    const {active, count, statusCart} = useSelector(countState);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 function clickImage(event) {
@@ -22,7 +21,7 @@ function cartHandler(event){
         if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));         
 }
     return <>    
-        <div className={ statusCart ? "single-container" : "single-container clearness"}>
+        <div className="single-container">
         <div className="single-left-content">
                 <div className="single-img">
                     <img src={srcImage} />
@@ -45,12 +44,13 @@ function cartHandler(event){
             <div className="single-discription">
             <p>{description}</p>
             </div>
-            <div className="single-cart-bar" onClick={cartHandler}>
+            <button className="single-go-back" onClick={() => navigate(-1)}>Go Back</button>
+            {statusCart && <div className="single-cart-bar" onClick={cartHandler}>
                 <i className='icon-plus btn-add' data-cart={id} ></i>
                 <Link  to="/cart" className='icon-basket'></Link>
                 <i className='icon-minus btn-del' data-cart={id}></i>
-            </div>
-            <button className="single-go-back" onClick={() => navigate(-1)}>Go Back</button>
+            </div>}
+            {!statusCart && <div className="single-cart-bar"><div className="lds-dual-ring"></div></div>}
         </div>
         </div>
     </>

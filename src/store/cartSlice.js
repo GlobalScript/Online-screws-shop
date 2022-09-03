@@ -1,5 +1,5 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import { URL_API, HEADERS } from '../config/config';
+import { URL_API, HEADERS } from '../config';
 import axios from "axios";
 import Cookies from 'js-cookie';
 
@@ -189,6 +189,23 @@ export const getCartThunk = createAsyncThunk('/cart/getCartThunk', ()=>{
         }
 );
 
+export const removeEmptyProductThunk = createAsyncThunk('/cart/removeEmptyProductThunk', (_,{getState})=>{
+                const {countGoods} = getState();
+                const {dataGoods} = getState();
+                const reindexGoods = dataGoods.goods.reduce((previous, item) => {
+                    previous[item.id] = item;
+                    return previous;
+                },{});
+                const result = {count:{}, active:{}, reindexGoods};
+                Object.keys(countGoods.preCount).map(item => {
+                        if(reindexGoods[item]) {
+                            result.count[item] = countGoods.preCount[item];
+                            result.active[item] = countGoods.preActive[item];
+                        }
+                    })
+                    return result;
+});
+
 export const orderThunk = createAsyncThunk('/cart/orderThunk', (order_form, {getState})=>{
             if(Cookies.get('cart_id')){
                 const {countGoods} = getState(); 
@@ -226,20 +243,25 @@ export const orderThunk = createAsyncThunk('/cart/orderThunk', (order_form, {get
 export const countSlice = createSlice({
     name: 'count_value',
     initialState:{
+        preCount: {},
+        preActive: {},
         count: {},
+        active: {},
         subPrice: {},
         totalPrice: 0,
-        active: {},
         statusCart: false,
         orderNumber: "",
         statusOrder: false,
+        reindexGoods: []
     },
     reducers:{
         sumAllGoods:(state, action) => {
             const units = action.payload;
+            
             Object.keys(state.count).map(item => state.subPrice[item] = state.count[item] * units[item]);
             Object.keys(state.subPrice).reduce((previous, item) => {
-                 previous += state.subPrice[item]; return state.totalPrice = previous}, 0);
+                 previous += state.subPrice[item];
+                 return state.totalPrice = previous}, 0);
           }
     },
     extraReducers: {
@@ -261,8 +283,11 @@ export const countSlice = createSlice({
         [getCartThunk.pending]: (state) => {
             state.statusCart = false;
         },
-        [orderThunk.pending]: (state) => {
+        [removeEmptyProductThunk.pending]: (state) => {
             state.statusCart = false;
+        },
+        [orderThunk.pending]: (state) => {
+            state.statusOrder = false;
         },
         [addFirstThunk.fulfilled]: (state, action) => {
             if(action.payload){
@@ -313,8 +338,16 @@ export const countSlice = createSlice({
         [getCartThunk.fulfilled]: (state, action) => {
             if(Object.keys(action.payload).length){
                 const cart = JSON.parse(action.payload.data);
-                state.count = cart.count; 
-                state.active = cart.active;
+                state.preCount = cart.count; 
+                state.preActive = cart.active;
+                state.statusCart = true;
+            }
+        },
+        [removeEmptyProductThunk.fulfilled]: (state, action) => {
+            if(Object.keys(action.payload).length){
+                state.count = action.payload.count;
+                state.active = action.payload.active;
+                state.reindexGoods = action.payload.reindexGoods;
                 state.statusCart = true;
             }
         },

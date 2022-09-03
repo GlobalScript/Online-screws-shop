@@ -6,7 +6,6 @@ import Cookies from 'js-cookie';
 
 function SuccessMessage(){
   const {orderNumber, statusOrder} = useSelector(state => state.countGoods);
-  const {status} = useSelector(state => state.dataGoods);
   const navigate = useNavigate();
 useEffect(()=>{
   if(!Cookies.get('cart_id')){
