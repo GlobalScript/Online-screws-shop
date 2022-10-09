@@ -40,6 +40,10 @@
   .single-discription {
     margin-right: 20px;
   }
+  .single-short {
+    margin-right: 20px;
+    word-wrap: break-word
+  }
   .single-go-back {
     @include styleButton(18px);
     margin: 30px auto;

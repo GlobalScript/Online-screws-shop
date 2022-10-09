@@ -72,6 +72,7 @@
   height: 50px;
   background: $backgroundColor;
   overflow: hidden;
+  word-wrap: break-word;
   a {
     text-decoration: none;
   }

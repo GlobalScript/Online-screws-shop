@@ -1,0 +1,25 @@
+.cookie-container {
+    background-color: aqua;
+    width: 250px;
+    height: 250px;
+    border-radius: 4px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -125px;
+    z-index: 999;
+    & h2 {
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+.cookie-agree {
+    @include styleButton(22px);
+    box-shadow: 0 1px 0 $thematColor;
+    cursor: pointer;
+    margin: 20px;
+    text-align: center;
+&:hover {
+    @include hoverAnchor;
+    }
+}

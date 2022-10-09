@@ -36,13 +36,19 @@
     @include hoverAnchor;
 }
 }
-.quantity-field input {
-    font-size: 16px;
-    border: $borderColor;
-    border-radius: 4px;
-    width: 80px;
-    height: 30px;
+.cart-hidden {
+    visibility: hidden
 }
+.quantity-field {
+    & input {
+        font-size: 16px;
+        border: $borderColor;
+        border-radius: 4px;
+        width: 80px;
+        height: 30px;
+    }
+}
+
 .cart-table .head-team {
     height: 40px;
     background-color: $backgroundColor;

@@ -6,7 +6,7 @@ import { hiddenComponent,
           hiddenSort,
           numberCurrentPage,
           setActivePage } from '../store/elementVisibilitySlice';
-import { addFirstThunk, delThunk } from '../store/cartSlice';
+import { addFirstThunk, deductThunk } from '../store/cartSlice';
 import {orderBy} from 'lodash';
 import Unit from "../components/product-components/Unit";
 import UnitList from "../components/product-components/UnitList";
@@ -46,7 +46,7 @@ useEffect(() => {
         event.preventDefault();
         const target = event.target;
         if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart));
-        if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));         
+        if(target.classList.contains('btn-del')) dispatch(deductThunk(target.dataset.cart));         
 }
   const itemsPerPage = 4;
   const indexOfLastItem = currentPage * itemsPerPage;

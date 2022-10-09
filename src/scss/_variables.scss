@@ -3,6 +3,7 @@ $greythematColor: #6edd80;
 $borderColor: 1px solid #ccc;
 $backgroundColor: #f0f1f1;
 $allTransition: .1s ease-in;
+$textColor: #444444;
 @mixin styleAnchor($padding) {
     color: #212121;
     padding: $padding;

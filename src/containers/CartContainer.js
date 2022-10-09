@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import {countState,
         sumAllGoods,
         addFirstThunk,
-        delThunk,
-        removeProductThunk} from '../store/cartSlice';                     
+        deductThunk,
+        removeProductThunk,
+       } from '../store/cartSlice';                     
 
 function CartContainer(){
       const dispatch = useDispatch();
@@ -19,14 +20,14 @@ function CartContainer(){
         return previous}, {})));
         dispatch(hiddenComponent(true));
         dispatch(hiddenSort(true));
-  },[count, subPrice]); 
+  },[count]); 
 function cartHandler(event){
         event.target.onselectstart = function() {
           return false;
         };
         const target = event.target;
           if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart)); 
-          if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));          
+          if(target.classList.contains('btn-del')) dispatch(deductThunk(target.dataset.cart));          
           if(target.classList.contains('btn-clear')) dispatch(removeProductThunk(target.dataset.cart));         
   }
     return <>

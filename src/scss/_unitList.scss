@@ -2,6 +2,7 @@
     display: flex;
     height: 200px;
     margin-bottom: 10px;
+    width: 100%;
   }
   .unit-list-img {
       border: $borderColor;
@@ -30,6 +31,7 @@
      margin: 0;
  }
  .unit-list-discription {
+    padding-top: 5px;
      overflow: hidden;
      height: 100px;
      width: 80%;
@@ -69,4 +71,9 @@
           top:120px;
           right:0px;
           left: 87px;
+      }
+      .unit-list-price {
+        padding: 5px;
+        color: $thematColor;
+        font-weight: bold;
       }

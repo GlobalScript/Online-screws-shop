@@ -17,6 +17,7 @@ function About() {
                     <li>Axios</li>
                     <li>Sass</li>
                     <li>Lodash</li>
+                    <li>REST API</li>
                 </ul>
                 </div>
                 

@@ -43,7 +43,7 @@ function navigateClick(event) {
     return (
         <header>
         <div className="wrap-logo">
-          <NavLink to="/home" onClick={navigateClick}><img src="/assets/logo.png" alt="logo"/></NavLink>
+          <NavLink to="/home" onClick={navigateClick}><h1>Petrovich</h1></NavLink>
         </div>
     <nav>
       <NavLink to="/home" className={headLinkActive} onClick={navigateClick}>Home</NavLink>

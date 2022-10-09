@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { goodsState } from "../../store/dataSlice";
-import { addFirstThunk, delThunk } from '../../store/cartSlice';
+import { addFirstThunk, deductThunk } from '../../store/cartSlice';
 import Unit from "./Unit";
 import UnitList from "./UnitList";
 
@@ -23,7 +23,7 @@ function cartHandler(event){
         event.preventDefault();
         const target = event.target;
         if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart));   
-        if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));                   
+        if(target.classList.contains('btn-del')) dispatch(deductThunk(target.dataset.cart));                   
     }
     return <>
         <div className="banner-field"><h1>Search</h1></div>

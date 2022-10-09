@@ -1,21 +1,15 @@
 import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { countState, delThunk, inputValueThunk } from '../../store/cartSlice';
+import { countState, inputValueThunk } from '../../store/cartSlice';
 import { unitProps} from '../../store/dataSlice';
 
 function Cart({goods, count}) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {subPrice, totalPrice, statusCart} = useSelector(countState);
-function inputBlur(event, item){
-    const inpVal = event.target.value;
-        if(inpVal <= 0 || inpVal == ""){
-            dispatch(delThunk(item));
-        } 
-    }
 function change(event, item){
     const inpVal = event.target.value;
-        if(inpVal > 0 || inpVal == ""){
+        if(inpVal >= 0 || inpVal == ""){
             dispatch(inputValueThunk({inpVal: +inpVal, product_id: item}));
         }
     }
@@ -58,7 +52,6 @@ function clickImageUnit(itemID) {
                         <i className='icon-plus btn-add' data-cart={goods[item]?.id}></i>
                         <input type="number"
                           value={count[item]}
-                          onBlur={event => inputBlur(event, item)}
                           onChange={event => change(event, item)}
                           />
                           <i className='icon-minus btn-del' data-cart={goods[item]?.id}></i>

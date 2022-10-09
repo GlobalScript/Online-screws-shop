@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { countState, addFirstThunk, delThunk   } from '../../store/cartSlice';
+import { countState, addFirstThunk, deductThunk   } from '../../store/cartSlice';
 import Slider from "./Slider";
 
 function Single({unit}) {
@@ -18,7 +18,7 @@ function cartHandler(event){
         event.preventDefault();
         const target = event.target;
         if(target.classList.contains('btn-add')) dispatch(addFirstThunk(target.dataset.cart));   
-        if(target.classList.contains('btn-del')) dispatch(delThunk(target.dataset.cart));         
+        if(target.classList.contains('btn-del')) dispatch(deductThunk(target.dataset.cart));         
 }
     return <>    
         <div className="single-container">
@@ -38,7 +38,9 @@ function cartHandler(event){
                 </Slider>
         </div>
         <div className="single-right-content">
+            <div className='single-short'>
             <h2>{short}</h2>
+            </div>
             <span className="price">{price}&nbsp;&#x24;</span>
             <h5>Description</h5>
             <div className="single-discription">

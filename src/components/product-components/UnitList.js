@@ -29,8 +29,8 @@ function clickUnit() {
         </div>
         <div className="unit-list-right-content">
                 <h2>{short}</h2>
-                <span className="price">{price}&nbsp;&#x24;</span>
-                <h4>Descriptions</h4>
+                <span className="unit-list-price">{price}&nbsp;&#x24;</span>
+                <h4>Description</h4>
                 <div className="unit-list-discription">
                     <span>{description}</span>
                 </div>
